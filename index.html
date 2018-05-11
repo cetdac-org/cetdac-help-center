@@ -2,6 +2,16 @@
 <html>
   <script src="./dist/js-dapps.js"></script>
   <script>
-    
+    let JSDApps = window.JSDApps
+    let jsdapps = JSDApps.create({
+      coin:"ETH"
+    })
+    jsdapps.getAccounts().then(async res=>{
+      console.log(res)
+      let balance = await jsdapps.getBalance(res[0])
+      console.log(balance)
+    }).catch(e=>{
+      console.error(e)
+    })
   </script>
 </html>
