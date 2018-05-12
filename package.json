@@ -19,6 +19,7 @@
   "homepage": "https://github.com/AlanGuo/lib-jsdapps#readme",
   "dependencies": {
     "nebpay.js": "0.0.1",
+    "nebulas": "^0.4.8",
     "web3": "^1.0.0-beta.34"
   },
   "devDependencies": {
