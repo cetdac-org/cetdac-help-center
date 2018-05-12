@@ -4,7 +4,14 @@
   <script>
     let JSDApps = window.JSDApps
     let jsdapps = JSDApps.create({
-      coin:"NAS"
+      coin:"NAS",
+      contracts:[{
+        name:'example',
+        fromAddress:'',
+        gasPrice:'123456',
+        abi:[],
+        address:''
+      }]
     })
     jsdapps.getAccounts().then(async res=>{
       console.log(res)

@@ -29,6 +29,18 @@ let JSDApps = function(config){
   return this
 }
 
+//合约
+let Contract = function(inst, config){
+  this._config = config || {}
+  switch(this._config.coin){
+    case 'eth':
+    this._instance = inst.eth.Contract(this._config.abi, this._config.address, {gasPrice:this._config.gasPrice, fromAddress:this._config.fromAddress})
+    break;
+    case 'nas':
+    break;
+  }
+}
+
 //获取账户
 JSDApps.prototype.getAccounts = async function(){
   switch(this._config.coin){
@@ -59,6 +71,23 @@ JSDApps.prototype.getBalance = async function(address){
         })
       })
     break;
+  }
+}
+
+//获取交易记录
+JSDApps.prototype.getTransactions = async function(){
+}
+
+//获取智能合约对象
+JSDApps.prototype.getContract = async function(contractName){
+  let params = this._config.contracts.find(item=>{
+    return item.name === contractName
+  })
+  switch(this._config.coin){
+    case 'eth':
+    return new Contract(this, Object.assign({coin:'eth'},params))
+    case 'nas':
+    return new Contract(this, Object.assign({coin:'nas'},params))
   }
 }
 
