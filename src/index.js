@@ -1,32 +1,20 @@
 const Web3 = require('web3');
 import { Account, Transaction, Neb, HttpRequest} from 'nebulas'
 import { resolve } from 'path';
+import { ENGINE_METHOD_PKEY_METHS } from 'constants';
 const transform = require('./transform');
 
 //for plugin config
 let _globalOptions = {
+  'currentCoin':'nas',
   'eth':{
     providerHost:'HTTP://127.0.0.1:8545'
   },
   'nas':{
     providerHost:'https://testnet.nebulas.io',    
-    accounts:[Account.NewAccount()]
+    accounts:[Account.NewAccount()],
+    gasLimit:'2000000'
   }
-}
-
-let JSDApps = function(config){
-  this._config = config || {}
-  if(/eth/i.test(this._config.coin)){
-    let inst = new Web3(new Web3.providers.HttpProvider(_globalOptions.eth.providerHost))
-    this._instance = inst
-  }
-  else if(/nas/i.test(this._config.coin)){
-    let inst = new Neb()
-    inst.setRequest(new HttpRequest(_globalOptions.nas.providerHost));
-    this._instance = inst
-  }
-
-  return this
 }
 
 //合约
@@ -37,8 +25,52 @@ let Contract = function(inst, config){
     this._instance = inst.eth.Contract(this._config.abi, this._config.address, {gasPrice:this._config.gasPrice, fromAddress:this._config.fromAddress})
     break;
     case 'nas':
+    this._instance = inst.api
+    this._nas._state = inst._nas._state
     break;
   }
+}
+
+//调用智能合约的方法
+Contract.prototype.call = function(method, args){
+  switch(this._config.coin){
+    case 'eth':
+    //this._instance = inst.eth.Contract(this._config.abi, this._config.address, {gasPrice:this._config.gasPrice, fromAddress:this._config.fromAddress})
+    break;
+    case 'nas':
+    this._instance.call({
+      to:this._config.address,
+      from:this._config.fromAddress,
+      value:0,
+      nonce:this.nas._nonce,
+      gasPrice:this._config.gasPrice,
+      gasLimit:this._config.gasLimit || _globalOptions.nas.gasLimit,
+      contract:{
+        function: method,
+        args: args
+      }
+    })
+    break;
+  }
+}
+
+let JSDApps = function(config){
+  this._config = config || {}
+  if(/eth/i.test(this._config.coin)){
+    let inst = new Web3(new Web3.providers.HttpProvider(_globalOptions.eth.providerHost))
+    this._instance = inst
+    //专属
+    this._eth = {}
+  }
+  else if(/nas/i.test(this._config.coin)){
+    let inst = new Neb()
+    inst.setRequest(new HttpRequest(_globalOptions.nas.providerHost));
+    this._instance = inst
+    //专属
+    this._nas = {}
+  }
+
+  return this
 }
 
 //获取账户
@@ -62,9 +94,11 @@ JSDApps.prototype.getBalance = async function(address){
       return this._instance.eth.getBalance(address)
       break;
     case "nas":
+      let _this = this
       return new Promise((resolve, reject)=>{
         this._instance.api.getAccountState(address).then(function (state) {
           state = state.result || state
+          _this._nas._state = state
           resolve(state.balance)
         }).catch(function (err) {
           reject(err)
@@ -85,10 +119,15 @@ JSDApps.prototype.getContract = async function(contractName){
   })
   switch(this._config.coin){
     case 'eth':
-    return new Contract(this, Object.assign({coin:'eth'},params))
+    return new Contract(this, Object.assign({coin:'eth'}, params))
     case 'nas':
-    return new Contract(this, Object.assign({coin:'nas'},params))
+    return new Contract(this, Object.assign({coin:'nas'}, params))
   }
+}
+
+//获取原生对象
+JSDApps.prototype.getRawInstance = function(){
+  return this._instance
 }
 
 /**
