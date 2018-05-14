@@ -36,43 +36,42 @@ let Contract = function(inst, config){
 //调用智能合约的方法
 Contract.prototype.call = function(method, args){
   let _this = this
-  switch(this._config.coin){
-    case 'eth':
-    return new Promise((resolve, reject)=>{
-      this._instance[method](args).send({
-        from:this._config.fromAddress,
-        gasPrice:this._config.gasPrice,
-        gas:this._config.gasLimit || _globalOptions.nas.gasLimit
-      }).then(tx=>{
-        resolve(tx)
-      }).catch(e=>{
-        reject(e)
-      })
-    })
-    //this._instance = inst.eth.Contract(this._config.abi, this._config.address, {gasPrice:this._config.gasPrice, fromAddress:this._config.fromAddress})
-    break;
-    case 'nas':
-    
-    return new Promise((resolve, reject)=>{
-      this._instance.call({
-        to:this._config.address,
-        from:this._config.fromAddress,
-        value:0,
-        nonce:this._nas.state.nonce,
-        gasPrice:this._config.gasPrice,
-        gasLimit:this._config.gasLimit || _globalOptions.nas.gasLimit,
-        contract:{
-          function: method,
-          args: args
-        }
-      }).then(tx=>{
-        resolve(tx)
-      }).catch(e=>{
-        reject(e)
-      })
-    })
-    break;
-  }
+  return new Promise((resolve, reject)=>{
+    switch(this._config.coin){
+      case 'eth':
+      
+        this._instance[method].apply(this._instance, args).send({
+          from:this._config.fromAddress,
+          gasPrice:this._config.gasPrice,
+          gas:this._config.gasLimit || _globalOptions.nas.gasLimit
+        }).then(tx=>{
+          resolve(tx)
+        }).catch(e=>{
+          reject(e)
+        })
+      
+      break;
+      case 'nas':
+        this._instance.call({
+          to:this._config.address,
+          from:this._config.fromAddress,
+          value:0,
+          nonce:this._nas.state.nonce,
+          gasPrice:this._config.gasPrice,
+          gasLimit:this._config.gasLimit || _globalOptions.nas.gasLimit,
+          contract:{
+            function: method,
+            args: JSON.stringify(args)
+          }
+        }).then(tx=>{
+          resolve(tx)
+        }).catch(e=>{
+          reject(e)
+        })
+
+      break;
+    }
+  })
 }
 
 let JSDApps = function(config){
@@ -94,7 +93,7 @@ let JSDApps = function(config){
   return this
 }
 
-//获取账户
+//获取交易账户
 JSDApps.prototype.getAccounts = async function(){
   switch(this._config.coin){
     case "eth":
@@ -149,6 +148,10 @@ JSDApps.prototype.getContract = async function(contractName){
 //获取原始对象
 JSDApps.prototype.getRawInstance = function(){
   return this._instance
+}
+
+//获取基础账户信息
+JSDApps.getUserInfo = function(){
 }
 
 /**
