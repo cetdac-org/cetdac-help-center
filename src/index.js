@@ -23,32 +23,53 @@ let Contract = function(inst, config){
   switch(this._config.coin){
     case 'eth':
     this._instance = inst.eth.Contract(this._config.abi, this._config.address, {gasPrice:this._config.gasPrice, fromAddress:this._config.fromAddress})
+    this._eth = {}
     break;
     case 'nas':
     this._instance = inst.api
-    this._nas._state = inst._nas._state
+    this._nas = {}
+    this._nas.state = inst._nas.state
     break;
   }
 }
 
 //调用智能合约的方法
 Contract.prototype.call = function(method, args){
+  let _this = this
   switch(this._config.coin){
     case 'eth':
+    return new Promise((resolve, reject)=>{
+      this._instance[method](args).send({
+        from:this._config.fromAddress,
+        gasPrice:this._config.gasPrice,
+        gas:this._config.gasLimit || _globalOptions.nas.gasLimit
+      }).then(tx=>{
+        resolve(tx)
+      }).catch(e=>{
+        reject(e)
+      })
+    })
     //this._instance = inst.eth.Contract(this._config.abi, this._config.address, {gasPrice:this._config.gasPrice, fromAddress:this._config.fromAddress})
     break;
     case 'nas':
-    this._instance.call({
-      to:this._config.address,
-      from:this._config.fromAddress,
-      value:0,
-      nonce:this.nas._nonce,
-      gasPrice:this._config.gasPrice,
-      gasLimit:this._config.gasLimit || _globalOptions.nas.gasLimit,
-      contract:{
-        function: method,
-        args: args
-      }
+    
+    return new Promise((resolve, reject)=>{
+      this._instance.call({
+        to:this._config.address,
+        from:this._config.fromAddress,
+        value:0,
+        nonce:this._nas.state.nonce,
+        gasPrice:this._config.gasPrice,
+        gasLimit:this._config.gasLimit || _globalOptions.nas.gasLimit,
+        contract:{
+          function: method,
+          args: args
+        }
+      }).then(tx=>{
+        resolve(tx)
+      }).catch(e=>{
+        reject(e)
+      })
     })
     break;
   }
@@ -98,7 +119,7 @@ JSDApps.prototype.getBalance = async function(address){
       return new Promise((resolve, reject)=>{
         this._instance.api.getAccountState(address).then(function (state) {
           state = state.result || state
-          _this._nas._state = state
+          _this._nas.state = state
           resolve(state.balance)
         }).catch(function (err) {
           reject(err)
@@ -125,7 +146,7 @@ JSDApps.prototype.getContract = async function(contractName){
   }
 }
 
-//获取原生对象
+//获取原始对象
 JSDApps.prototype.getRawInstance = function(){
   return this._instance
 }
