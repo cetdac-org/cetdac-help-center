@@ -1,22 +1,40 @@
 <!doctype html>
 <html>
-  <script src="./dist/js-dapps.js"></script>
+  <script src="./dist/jsdapps.dist.js"></script>
   <script>
     let JSDApps = window.JSDApps
     let jsdapps = JSDApps.create({
-      coin:"NAS",
-      contracts:[{
-        name:'example',
-        fromAddress:'',
-        gasPrice:'123456',
-        abi:[],
-        address:''
-      }]
+      //币种
+      coin:"ETH",
+      //only needed by NAS
+      //chainID:1,
+      //gas价格
+      gasPrice:'20000000000',
+      //gas数量
+      gas:'80000'
+      // contracts:[{
+      //   name:'example',
+      //   fromAddress:'',
+      //   gasPrice:'123456',
+      //   abi:[],
+      //   address:''
+      // }]
     })
+    jsdapps.generateAddressesFromSeed('candy maple cake sugar pudding cream honey rich smooth crumble sweet treat', 2)
     jsdapps.getAccounts().then(async res=>{
-      console.log(res)
-      let balance = await jsdapps.getBalance(res[0])
-      console.log(balance)
+      console.log('账户', res)
+      if(res.accounts.length){
+        let balance = await jsdapps.getBalance(res.accounts[0])
+        console.log('余额', balance)
+        console.log('tx', await jsdapps.sendTransaction({
+          from:'0x627306090abaB3A6e1400e9345bC60c78a8BEf57',
+          //留空表示创建合约
+          to:'0xf17f52151EbEF6C7334FAD080c5704D77216b732',
+          value:0.01 * 1e18,
+          data:jsdapps.utils.toHex('小协议v2')
+        }))
+      }
+
     }).catch(e=>{
       console.error(e)
     })

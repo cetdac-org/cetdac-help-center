@@ -6,15 +6,37 @@ const transform = require('./transform');
 
 //for plugin config
 let _globalOptions = {
+  'mode':'dev',
   'currentCoin':'nas',
+  'name':'alan',
   'eth':{
-    providerHost:'HTTP://127.0.0.1:8545'
+    //providerHost:'HTTP://127.0.0.1:8545'
+    providerHost:'https://ropsten.infura.io/fGmMX5vkBJq6bREmfaJp'
   },
   'nas':{
     providerHost:'https://testnet.nebulas.io',    
     accounts:[Account.NewAccount()],
-    gasLimit:'2000000'
+    gasLimit:'2000000',
+    chainID:1
   }
+}
+
+let generateAddressesFromSeed = function(seed, count) {
+  let bip39 = require('bip39');
+  let hdkey = require('ethereumjs-wallet/hdkey');
+  let hdwallet = hdkey.fromMasterSeed(bip39.mnemonicToSeed(seed));
+  let wallet_hdpath = "m/44'/60'/0'/0/";
+
+  let accounts = [];
+  for (let i = 0; i < count; i++) {
+
+      let wallet = hdwallet.derivePath(wallet_hdpath + i).getWallet();
+      let address = '0x' + wallet.getAddress().toString("hex");
+      let privateKey = wallet.getPrivateKey().toString("hex");
+      accounts.push({address: address, privateKey: privateKey});
+  }
+
+  return accounts;
 }
 
 //合约
@@ -56,7 +78,7 @@ Contract.prototype.call = function(method, args){
           to:this._config.address,
           from:this._config.fromAddress,
           value:0,
-          nonce:this._nas.state.nonce,
+          nonce:++this._nas.state.nonce,
           gasPrice:this._config.gasPrice,
           gasLimit:this._config.gasLimit || _globalOptions.nas.gasLimit,
           contract:{
@@ -93,17 +115,59 @@ let JSDApps = function(config){
   return this
 }
 
+JSDApps.prototype.version = 0.5
+
+JSDApps.prototype.generateAddressesFromSeed = function(seed, count){
+  let accountsData = generateAddressesFromSeed(seed, count)
+  let _this = this
+  
+  accountsData.forEach(item=>{
+    _this._instance.eth.accounts.create()
+  })
+}
+
 //获取交易账户
 JSDApps.prototype.getAccounts = async function(){
+  let _this = this
+  return new Promise((resolve, reject) => {
+    switch(_this._config.coin){
+      case "eth":
+        _this._instance.eth.getAccounts((error, accounts)=>{
+          debugger
+          if(error){
+            reject(error)
+          }
+          else{
+            resolve({
+              name:_globalOptions.name,
+              sex:_globalOptions.sex,
+              birth:_globalOptions.birth,
+              accounts:transform.getAccounts[_this._config.coin](accounts)
+            })
+          }
+        })
+        break;
+      case "nas":
+        return {
+          name:_globalOptions.name,
+          sex:_globalOptions.sex,
+          birth:_globalOptions.birth,
+          accounts:transform.getAccounts[_this._config.coin](_globalOptions.nas.accounts.map(item=>{
+            return item.getAddressString()
+          }))
+        }
+      break;
+    }
+  })
+}
+
+JSDApps.prototype.setDefaultAccount = function(address){
   switch(this._config.coin){
     case "eth":
-      return transform.getAccount(this._instance.eth.getAccounts())
+      return this._instance.defaultAccount = address
       break;
-    case "nas":
-      return _globalOptions.nas.accounts.map(item=>{
-        return item.getAddressString()
-      })
-    break;
+    case 'nas':
+      break;
   }
 }
 
@@ -128,7 +192,56 @@ JSDApps.prototype.getBalance = async function(address){
   }
 }
 
+//发送交易
+JSDApps.prototype.sendTransaction = async function(config){
+  let _this = this
+  switch(this._config.coin){
+    case "eth":
+      return new Promise((resolve, reject)=>{
+        return _this._instance.eth.sendTransaction({
+          from:config.from,
+          to:config.to,
+          value:config.value,
+          gas:config.gas || _this._config.gas,
+          gasPrice:config.gasPrice || _this._config.gasPrice,
+          data:config.data,
+          nonce:config.nonce
+        }, function(error, hash){
+          if(error){
+            reject(error)
+          }
+          else{
+            resolve({tx:hash})
+          }
+        })
+      })
+    case "nas":
+    return new Promise((resolve, reject)=>{
+      let tx = new Transaction({
+        chainID:_this._config.chainID,
+        from:config.from,
+        to:config.to,
+        value:config.value,
+        gasLimit:config.gas || _this._config.gas,
+        gasPrice:config.gasPrice || _this._config.gasPrice,
+        nonce:config.nonce
+      })
+      tx.signTransaction()
+      _this._instance.api.sendRawTransaction( {data: tx.toProtoString()} ).then(function(hash) {
+        resolve({tx:hash})
+      }).catch(e=>{
+        reject(e)
+      })
+    })
+    break;
+  }
+}
+
 //获取交易记录
+JSDApps.prototype.getTransaction = async function(){
+}
+
+//获取交易记录列表
 JSDApps.prototype.getTransactions = async function(){
 }
 
@@ -145,14 +258,36 @@ JSDApps.prototype.getContract = async function(contractName){
   }
 }
 
+//获取gasPrice
+JSDApps.prototype.getGasPrice = function(){
+  let _this = this
+  new Promise((resolve, reject)=>{
+    switch(this._config.coin){
+      case 'eth':
+      _this._instance.eth.getGasPrice().then(function(gasPrice){
+        resolve(gasPrice)
+      }).catch(e=>{
+        reject(e)
+      })
+      break;
+      case 'nas':
+      _this._instance.api.gasPrice().then(function(gasPrice){
+        resolve(gasPrice)
+      }).catch(e=>{
+        reject(e)
+      })
+      break;
+    }
+  })
+}
+
 //获取原始对象
 JSDApps.prototype.getRawInstance = function(){
   return this._instance
 }
 
-//获取基础账户信息
-JSDApps.getUserInfo = function(){
-}
+//工具类
+JSDApps.prototype.utils = Web3.utils
 
 /**
  * Represents a JSDApps.
@@ -168,4 +303,6 @@ export function create(config){
   return jsdapps
 }
 
-console.log('JSDApps has defined on window for developing all kind of dapps.')
+if(_globalOptions.mode === 'dev'){
+  console.log('JSDApps has defined on window for developing all kind of dapps.')
+}

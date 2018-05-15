@@ -4,7 +4,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'js-dapps.js',
+    filename: 'jsdapps.dist.js',
     library: 'JSDApps',
     libraryTarget: 'window'
   },

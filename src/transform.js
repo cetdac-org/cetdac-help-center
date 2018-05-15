@@ -1,5 +1,5 @@
 module.exports = {
-  'getAccount':{
+  'getAccounts':{
     'eth':function(res){
       return res
     },
