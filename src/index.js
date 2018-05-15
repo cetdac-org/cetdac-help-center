@@ -1,7 +1,6 @@
 const Web3 = require('web3');
 import { Account, Transaction, Neb, HttpRequest} from 'nebulas'
 import { resolve } from 'path';
-import { ENGINE_METHOD_PKEY_METHS } from 'constants';
 const transform = require('./transform');
 
 //for plugin config
@@ -10,8 +9,7 @@ let _globalOptions = {
   'currentCoin':'nas',
   'name':'alan',
   'eth':{
-    //providerHost:'HTTP://127.0.0.1:8545'
-    providerHost:'https://ropsten.infura.io/fGmMX5vkBJq6bREmfaJp'
+    provider: null
   },
   'nas':{
     providerHost:'https://testnet.nebulas.io',    
@@ -29,7 +27,6 @@ let generateAddressesFromSeed = function(seed, count) {
 
   let accounts = [];
   for (let i = 0; i < count; i++) {
-
       let wallet = hdwallet.derivePath(wallet_hdpath + i).getWallet();
       let address = '0x' + wallet.getAddress().toString("hex");
       let privateKey = wallet.getPrivateKey().toString("hex");
@@ -61,7 +58,6 @@ Contract.prototype.call = function(method, args){
   return new Promise((resolve, reject)=>{
     switch(this._config.coin){
       case 'eth':
-      
         this._instance[method].apply(this._instance, args).send({
           from:this._config.fromAddress,
           gasPrice:this._config.gasPrice,
@@ -99,7 +95,7 @@ Contract.prototype.call = function(method, args){
 let JSDApps = function(config){
   this._config = config || {}
   if(/eth/i.test(this._config.coin)){
-    let inst = new Web3(new Web3.providers.HttpProvider(_globalOptions.eth.providerHost))
+    let inst = new Web3(_globalOptions.eth.provider)
     this._instance = inst
     //专属
     this._eth = {}
