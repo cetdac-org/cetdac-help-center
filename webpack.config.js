@@ -6,7 +6,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'jsdapps.dist.js',
     library: 'JSDApps',
-    libraryTarget: 'window'
+    libraryTarget: 'umd'
   },
   externals: {
     lodash: {
