@@ -111,10 +111,6 @@ let JSDApps = function(config){
   return this
 }
 
-JSDApps.setGlobalOptions = function(options){
-  JSDApps._globalOptions = options
-}
-
 JSDApps.prototype.version = 0.5
 
 JSDApps.prototype.generateAddressesFromSeed = function(seed, count){
@@ -299,4 +295,8 @@ export function create(config){
   }
   let jsdapps = new JSDApps(config)
   return jsdapps
+}
+
+export function setGlobalOptions(options){
+  _globalOptions = Object.assign(_globalOptions, options)
 }
