@@ -287,7 +287,7 @@ JSDApps.prototype.utils = Web3.utils
 /**
  * Represents a JSDApps.
  * @constructor
- * @param {object} config - 配置(coin, unit, providerHost).
+ * @param {object} config - 配置(coin, unit, provider).
  */
 export function create(config){
   config = config || {}
