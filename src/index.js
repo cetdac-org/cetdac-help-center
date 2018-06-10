@@ -111,6 +111,10 @@ let JSDApps = function(config){
   return this
 }
 
+JSDApps.setGlobalOptions = function(options){
+  JSDApps._globalOptions = options
+}
+
 JSDApps.prototype.version = 0.5
 
 JSDApps.prototype.generateAddressesFromSeed = function(seed, count){
@@ -121,7 +125,6 @@ JSDApps.prototype.generateAddressesFromSeed = function(seed, count){
     _this._instance.eth.accounts.create()
   })
 }
-
 //获取交易账户
 JSDApps.prototype.getAccounts = async function(){
   let _this = this
@@ -296,8 +299,4 @@ export function create(config){
   }
   let jsdapps = new JSDApps(config)
   return jsdapps
-}
-
-if(_globalOptions.mode === 'dev'){
-  console.log('AppRoles has defined on window for developing all kind of dapps.')
 }
