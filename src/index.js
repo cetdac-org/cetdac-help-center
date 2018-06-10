@@ -129,7 +129,6 @@ JSDApps.prototype.getAccounts = async function(){
     switch(_this._config.coin){
       case "eth":
         _this._instance.eth.getAccounts((error, accounts)=>{
-          debugger
           if(error){
             reject(error)
           }
