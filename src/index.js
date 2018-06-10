@@ -95,14 +95,14 @@ Contract.prototype.call = function(method, args){
 let JSDApps = function(config){
   this._config = config || {}
   if(/eth/i.test(this._config.coin)){
-    let inst = new Web3(_globalOptions.eth.provider)
+    let inst = new Web3(config.provider)
     this._instance = inst
     //专属
     this._eth = {}
   }
   else if(/nas/i.test(this._config.coin)){
     let inst = new Neb()
-    inst.setRequest(new HttpRequest(_globalOptions.nas.providerHost));
+    inst.setRequest(new HttpRequest(config.provider));
     this._instance = inst
     //专属
     this._nas = {}
@@ -299,5 +299,5 @@ export function create(config){
 }
 
 if(_globalOptions.mode === 'dev'){
-  console.log('JSDApps has defined on window for developing all kind of dapps.')
+  console.log('AppRoles has defined on window for developing all kind of dapps.')
 }
