@@ -5,9 +5,6 @@ const transform = require('./transform');
 
 //for plugin config
 let _globalOptions = {
-  'mode':'dev',
-  'currentCoin':'nas',
-  'name':'alan',
   'eth':{
     provider: null
   },
@@ -111,8 +108,6 @@ let JSDApps = function(config){
   return this
 }
 
-JSDApps.prototype.version = 0.5
-
 JSDApps.prototype.generateAddressesFromSeed = function(seed, count){
   let accountsData = generateAddressesFromSeed(seed, count)
   let _this = this
@@ -164,7 +159,6 @@ JSDApps.prototype.setDefaultAccount = function(address){
       break;
   }
 }
-
 //获取账户余额
 JSDApps.prototype.getBalance = async function(address){
   switch(this._config.coin){
