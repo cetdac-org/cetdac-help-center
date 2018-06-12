@@ -255,7 +255,7 @@ JSDApps.prototype.getContract = async function(contractName){
 //获取gasPrice
 JSDApps.prototype.getGasPrice = function(){
   let _this = this
-  new Promise((resolve, reject)=>{
+  return new Promise((resolve, reject)=>{
     switch(this._config.coin){
       case 'eth':
       _this._instance.eth.getGasPrice().then(function(gasPrice){
