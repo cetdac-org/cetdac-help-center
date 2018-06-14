@@ -116,47 +116,64 @@ JSDApps.prototype.generateAddressesFromSeed = function(seed, count){
     _this._instance.eth.accounts.create()
   })
 }
-//获取交易账户
-JSDApps.prototype.getAccounts = async function(){
-  let _this = this
-  return new Promise((resolve, reject) => {
-    switch(_this._config.coin){
-      case "eth":
-        _this._instance.eth.getAccounts((error, accounts)=>{
-          if(error){
-            reject(error)
-          }
-          else{
-            resolve({
-              name:_globalOptions.name,
-              sex:_globalOptions.sex,
-              birth:_globalOptions.birth,
-              accounts:transform.getAccounts[_this._config.coin](accounts)
-            })
-          }
-        })
-        break;
-      case "nas":
-        return {
-          name:_globalOptions.name,
-          sex:_globalOptions.sex,
-          birth:_globalOptions.birth,
-          accounts:transform.getAccounts[_this._config.coin](_globalOptions.nas.accounts.map(item=>{
+
+//账户方法
+JSDApps.prototype.accounts = {
+  getAccounts : async function(){
+    let _this = this
+    return new Promise((resolve, reject) => {
+      switch(_this._config.coin){
+        case "eth":
+          _this._instance.eth.getAccounts((error, accounts)=>{
+            if(error){
+              reject(error)
+            }
+            else{
+              resolve(transform.getAccounts[_this._config.coin](accounts))
+            }
+          })
+          break;
+        case "nas":
+          return transform.getAccounts[_this._config.coin](_globalOptions.nas.accounts.map(item=>{
             return item.getAddressString()
           }))
-        }
-      break;
-    }
-  })
-}
+        break;
+      }
+    })
+  },
+  create : async function(){
+    let _this = this
+    return new Promise((resolve, reject) => {
+      switch(_this._config.coin){
+        case "eth":
+          _this._instance.eth.create((error, account)=>{
+            if(error){
+              reject(error)
+            }
+            else{
+              resolve({
+                accounts:transform.getAccounts[_this._config.coin](accounts)
+              })
+            }
+          })
+          break;
+        case "nas":
+          return transform.getAccounts[_this._config.coin](_globalOptions.nas.accounts.map(item=>{
+            return item.getAddressString()
+          }))
+        break;
+      }
+    })
+  },
 
-JSDApps.prototype.setDefaultAccount = function(address){
-  switch(this._config.coin){
-    case "eth":
-      return this._instance.defaultAccount = address
-      break;
-    case 'nas':
-      break;
+  setDefaultAccount : function(address){
+    switch(this._config.coin){
+      case "eth":
+        return this._instance.defaultAccount = address
+        break;
+      case 'nas':
+        break;
+    }
   }
 }
 //获取账户余额
