@@ -105,7 +105,47 @@ let JSDApps = function(config){
     this._nas = {}
   }
 
+  //setup accounts
+  this.accounts = {
+    getAccounts: getAccounts.bind(this),
+    setDefaultAccount: setDefaultAccount.bind(this)
+  }
+
   return this
+}
+
+//账户方法
+let getAccounts = function(){
+  let _this = this
+  return new Promise((resolve, reject) => {
+    switch(_this._config.coin){
+      case "eth":
+        _this._instance.eth.getAccounts((error, accounts)=>{
+          if(error){
+            reject(error)
+          }
+          else{
+            resolve(transform.getAccounts[_this._config.coin](accounts))
+          }
+        })
+        break;
+      case "nas":
+        return transform.getAccounts[_this._config.coin](_globalOptions.nas.accounts.map(item=>{
+          return item.getAddressString()
+        }))
+      break;
+    }
+  })
+}
+
+let setDefaultAccount = function(address){
+  switch(this._config.coin){
+    case "eth":
+      return this._instance.defaultAccount = address
+      break;
+    case 'nas':
+      break;
+  }
 }
 
 JSDApps.prototype.generateAddressesFromSeed = function(seed, count){
@@ -117,65 +157,6 @@ JSDApps.prototype.generateAddressesFromSeed = function(seed, count){
   })
 }
 
-//账户方法
-JSDApps.prototype.accounts = {
-  getAccounts : async function(){
-    let _this = this
-    return new Promise((resolve, reject) => {
-      switch(_this._config.coin){
-        case "eth":
-          _this._instance.eth.getAccounts((error, accounts)=>{
-            if(error){
-              reject(error)
-            }
-            else{
-              resolve(transform.getAccounts[_this._config.coin](accounts))
-            }
-          })
-          break;
-        case "nas":
-          return transform.getAccounts[_this._config.coin](_globalOptions.nas.accounts.map(item=>{
-            return item.getAddressString()
-          }))
-        break;
-      }
-    })
-  },
-  create : async function(){
-    let _this = this
-    return new Promise((resolve, reject) => {
-      switch(_this._config.coin){
-        case "eth":
-          _this._instance.eth.create((error, account)=>{
-            if(error){
-              reject(error)
-            }
-            else{
-              resolve({
-                accounts:transform.getAccounts[_this._config.coin](accounts)
-              })
-            }
-          })
-          break;
-        case "nas":
-          return transform.getAccounts[_this._config.coin](_globalOptions.nas.accounts.map(item=>{
-            return item.getAddressString()
-          }))
-        break;
-      }
-    })
-  },
-
-  setDefaultAccount : function(address){
-    switch(this._config.coin){
-      case "eth":
-        return this._instance.defaultAccount = address
-        break;
-      case 'nas':
-        break;
-    }
-  }
-}
 //获取账户余额
 JSDApps.prototype.getBalance = async function(address){
   switch(this._config.coin){
@@ -196,7 +177,6 @@ JSDApps.prototype.getBalance = async function(address){
     break;
   }
 }
-
 //发送交易
 JSDApps.prototype.sendTransaction = async function(config){
   let _this = this
