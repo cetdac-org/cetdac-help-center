@@ -89,7 +89,7 @@ Contract.prototype.call = function(method, args){
   })
 }
 
-let JSDApps = function(config){
+let AppRoles = function(config){
   this._config = config || {}
   if(/eth/i.test(this._config.coin)){
     let inst = new Web3(config.provider)
@@ -148,7 +148,7 @@ let setDefaultAccount = function(address){
   }
 }
 
-JSDApps.prototype.generateAddressesFromSeed = function(seed, count){
+AppRoles.prototype.generateAddressesFromSeed = function(seed, count){
   let accountsData = generateAddressesFromSeed(seed, count)
   let _this = this
   
@@ -158,7 +158,7 @@ JSDApps.prototype.generateAddressesFromSeed = function(seed, count){
 }
 
 //获取账户余额
-JSDApps.prototype.getBalance = async function(address){
+AppRoles.prototype.getBalance = async function(address){
   switch(this._config.coin){
     case "eth":
       return this._instance.eth.getBalance(address)
@@ -178,7 +178,7 @@ JSDApps.prototype.getBalance = async function(address){
   }
 }
 //发送交易
-JSDApps.prototype.sendTransaction = async function(config){
+AppRoles.prototype.sendTransaction = async function(config){
   let _this = this
   switch(this._config.coin){
     case "eth":
@@ -223,15 +223,15 @@ JSDApps.prototype.sendTransaction = async function(config){
 }
 
 //获取交易记录
-JSDApps.prototype.getTransaction = async function(){
+AppRoles.prototype.getTransaction = async function(){
 }
 
 //获取交易记录列表
-JSDApps.prototype.getTransactions = async function(){
+AppRoles.prototype.getTransactions = async function(){
 }
 
 //获取智能合约对象
-JSDApps.prototype.getContract = async function(contractName){
+AppRoles.prototype.getContract = async function(contractName){
   let params = this._config.contracts.find(item=>{
     return item.name === contractName
   })
@@ -244,7 +244,7 @@ JSDApps.prototype.getContract = async function(contractName){
 }
 
 //获取gasPrice
-JSDApps.prototype.getGasPrice = function(){
+AppRoles.prototype.gasPrice = function(){
   let _this = this
   return new Promise((resolve, reject)=>{
     switch(this._config.coin){
@@ -267,15 +267,15 @@ JSDApps.prototype.getGasPrice = function(){
 }
 
 //获取原始对象
-JSDApps.prototype.getRawInstance = function(){
+AppRoles.prototype.getRawInstance = function(){
   return this._instance
 }
 
 //工具类
-JSDApps.prototype.utils = Web3.utils
+AppRoles.prototype.utils = Web3.utils
 
 /**
- * Represents a JSDApps.
+ * Represents a AppRoles.
  * @constructor
  * @param {object} config - 配置(coin, unit, provider).
  */
@@ -284,8 +284,8 @@ export function create(config){
   if(config.coin && config.coin.toLowerCase){
     config.coin = config.coin.toLowerCase()
   }
-  let jsdapps = new JSDApps(config)
-  return jsdapps
+  let AppRoles = new AppRoles(config)
+  return AppRoles
 }
 
 export function setGlobalOptions(options){

@@ -4,8 +4,8 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'jsdapps.dist.js',
-    library: 'JSDApps',
+    filename: 'approles.dist.js',
+    library: 'AppRoles',
     libraryTarget: 'umd'
   },
   externals: {
