@@ -284,8 +284,8 @@ export function create(config){
   if(config.coin && config.coin.toLowerCase){
     config.coin = config.coin.toLowerCase()
   }
-  let AppRoles = new AppRoles(config)
-  return AppRoles
+  let appRoles = new AppRoles(config)
+  return appRoles
 }
 
 export function setGlobalOptions(options){
