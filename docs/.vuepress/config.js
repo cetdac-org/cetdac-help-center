@@ -57,7 +57,7 @@ module.exports = {
           //   ]
           // },
           {
-            title: '快速上手',
+            title: '上手指南',
             collapsable: false,
             children: [
               '/zh/getstarted/'
