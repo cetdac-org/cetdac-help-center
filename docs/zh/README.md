@@ -5,7 +5,7 @@ actionText: 上手指南 →
 actionLink: /zh/getstarted/
 features:
 - title: 轻松支持
-  details: 只需安装一个插件，功能丰富的API随意调用。
+  details: 只需安装一个插件，功能丰富的API就可以轻松调用。
 - title: 多币种，多公链统一API
   details: 除了ETH，我们还支持BCH，BTC，NAS，EOS，等公链，并提供统一的API调用接口，开发者只需专注于业务层面。
 - title: 极致安全
