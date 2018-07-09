@@ -239,7 +239,6 @@
     "fs-minipass": "^1.2.5",
     "fs-write-stream-atomic": "^1.0.10",
     "fs.realpath": "^1.0.0",
-    "fsevents": "^1.2.4",
     "function-bind": "^1.1.1",
     "gauge": "^2.7.4",
     "get-port": "^3.2.0",
