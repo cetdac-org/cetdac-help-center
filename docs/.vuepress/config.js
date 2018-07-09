@@ -12,8 +12,8 @@ module.exports = {
     },
     '/zh/': {
       lang: '简体中文',
-      title: 'AppRoles',
-      description: '开发者文档',
+      title: '开发者文档 | AppRoles',
+      description: '参考手册',
       head: [
         ['link', { rel: 'icon', href: '/favicon.ico' }]
       ]
