@@ -49,13 +49,6 @@ module.exports = {
         selectText: '选择语言',
         label: '简体中文',
         sidebar: [
-          // {
-          //   title: '安装',
-          //   collapsable: false,
-          //   children: [
-          //     '/zh/plugin'
-          //   ]
-          // },
           {
             title: '上手指南',
             collapsable: false,
@@ -71,14 +64,15 @@ module.exports = {
           },
           {
             title: 'API文档',
-            children: [ /* ... */ ]
+            // collapsable: false,
+            children: [
+              '/zh/reference/'
+            ]
           },
           {
             title: '更多相关教程',
             collapsable: false,
-            children: [
-              //'/zh/'
-            ]
+            children: []
           },
         ]
       }
