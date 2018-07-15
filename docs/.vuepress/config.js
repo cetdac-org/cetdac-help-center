@@ -11,7 +11,7 @@ module.exports = {
       ]
     },
     '/zh/': {
-      lang: '简体中文',
+      lang: 'zh-cn',
       title: '开发者文档 | AppRoles',
       description: '参考手册',
       head: [
@@ -21,6 +21,11 @@ module.exports = {
   },
   themeConfig: {
     lastUpdated: 'Last Updated',
+    nav: [
+      { text: 'AppRoles', link: 'https://approles.com/' },
+      { text: 'Developer', link: 'https://developer.approles.com/' },
+      { text: 'Github', link: 'https://github.com/' }
+    ],
     locales:{
       '/':{
         selectText: 'Languages',
@@ -47,6 +52,11 @@ module.exports = {
         ]
       },
       '/zh/':{
+        nav: [
+          { text: 'AppRoles', link: 'https://approles.com/' },
+          { text: '开发者站', link: 'https://developer.approles.com/' },
+          { text: 'Github', link: 'https://github.com/' }
+        ],
         selectText: '选择语言',
         label: '简体中文',
         sidebar: [
@@ -65,12 +75,14 @@ module.exports = {
           },
           {
             title: 'API文档',
-            // collapsable: false,
+            collapsable: false,
             children: [
               '/zh/reference/approles/',
               '/zh/reference/wallet/',
               '/zh/reference/preferences/',
               '/zh/reference/userContext/',
+              '/zh/reference/bch/',
+              '/zh/reference/eth/',
               '/zh/reference/version/'
             ]
           },
