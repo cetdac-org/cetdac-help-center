@@ -20,6 +20,7 @@ module.exports = {
     }
   },
   themeConfig: {
+    lastUpdated: 'Last Updated',
     locales:{
       '/':{
         selectText: 'Languages',
@@ -66,7 +67,11 @@ module.exports = {
             title: 'API文档',
             // collapsable: false,
             children: [
-              '/zh/reference/'
+              '/zh/reference/approles/',
+              '/zh/reference/wallet/',
+              '/zh/reference/preferences/',
+              '/zh/reference/userContext/',
+              '/zh/reference/version/'
             ]
           },
           {
