@@ -174,6 +174,19 @@ BCH币种的接口API
 
 ## bitapp.wallet
 
+钱包模块
+
+### bitapp.wallet.requestUnlock
+- 类型：方法
+- 参数: 
+  - appName 申请用户解锁钱包的应用名称
+- 返回: Promise
+  - success
+    - status | [string] 当解锁成功之后，返回'success'
+  - fail
+
+[试一试](http://localhost:3001/playground?code=bitapp.wallet.requestUnlock)
+
 ## bitapp.userContext
 
 ## bitapp.preferences
