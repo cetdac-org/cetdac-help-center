@@ -12,7 +12,7 @@ module.exports = {
     },
     '/zh/': {
       lang: '简体中文',
-      title: '开发者文档 | AppRoles',
+      title: '开发者文档 | BITAPP',
       description: '参考手册',
       head: [
         ['link', { rel: 'icon', href: '/favicon.ico' }]
@@ -74,6 +74,11 @@ module.exports = {
             collapsable: false,
             children: []
           },
+          {
+            title: '常见问题',
+            collapsable: false,
+            children: []
+          }
         ]
       }
     }
