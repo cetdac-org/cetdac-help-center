@@ -53,8 +53,8 @@ module.exports = {
       },
       '/zh/':{
         nav: [
-          { text: 'AppRoles', link: 'https://approles.com/' },
-          { text: '开发者站', link: 'https://developer.approles.com/' },
+          { text: 'BITAPP', link: 'https://www.bitapp.pro/' },
+          { text: '开发者站', link: 'https://developer.bitapp.pro/' },
           { text: 'Github', link: 'https://github.com/' }
         ],
         selectText: '选择语言',
