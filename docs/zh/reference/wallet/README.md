@@ -1,79 +1,25 @@
-# AppRoles.wallet
+# bitapp.wallet
 
 钱包模块提供跨语言的通用钱包管理API
 
-## isUnlock()
+## bitapp.wallet.requestUnlock
+- 类型：方法
+- 参数: 
+  - appName 申请用户解锁钱包的应用名称
+- 返回: Promise
+  - success
+    - status | [string] 当解锁成功之后，返回'success'
+  - fail
 
-判断 approles 插件钱包是否处于解锁状态
+[试一试](http://localhost:3001/playground?code=bitapp.wallet.requestUnlock)
 
-#### 类型
-- 异步方法
-#### 参数
-- 无
-#### 返回
-- result [boolean]
-  - true : 钱包处于解锁状态
-  - false : 钱包处于锁定状态
+## bitapp.wallet.isUnlock
 
-#### 用法
-```js
+判断 bitapp 插件钱包是否处于解锁状态
 
-var walletApi = window.AppRoles.wallet;
-walletApi.isUnlock().then(isUnlock => {
-  console.log(isUnlock)
-  // true o r false
-}).catch(e=>{
-  console.error(e)
-})
-
-```
-
-## requestUnlock(appName)
-
-请求用户解锁 appRoles，该方法调用成功之后会 appRoles 会弹窗请求用户输入密码解锁
-
-#### 类型
-- 异步方法
-#### 参数
-- appName [string] 你应用的名称
-#### 返回
-- result [string] 
-  - "success" : 钱包处于解锁状态
-
-#### 用法
-```js
-
-var walletApi = window.AppRoles.wallet;
-walletApi.requestUnlock('your app name').then(result => {
-  console.log(result)
-  // true o r false
-}).catch(e=>{
-  console.error(e)
-})
-
-```
-
-## lock()
-
-主动锁定 approles 插件钱包
-
-#### 类型
-- 异步方法
-#### 参数
-- 无
-#### 返回
-- result [boolean]
-  - "success" : 钱包锁定成功
-
-#### 用法
-```js
-
-var walletApi = window.AppRoles.wallet;
-walletApi.lock().then(result => {
-  console.log(result)
-  // true o r false
-}).catch(e=>{
-  console.error(e)
-})
-
-```
+- 类型：方法
+- 参数: 无
+- 返回: Promise
+  - success
+    - isUnlocked | [bool] 如果钱包处于解锁状态，则值为true，如果钱包为锁定状态，则值为false
+  - fail

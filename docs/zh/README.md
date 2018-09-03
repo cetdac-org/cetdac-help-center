@@ -19,7 +19,7 @@ footer: Copyright © BITAPP Team
 
 ```js
 
-var bitapp = window.BITAPP;
+var bitapp = window.bitapp;
 bitapp.eth.accounts.getAccounts().then( accounts => { 
  // 用户账户
  console.log(accounts)

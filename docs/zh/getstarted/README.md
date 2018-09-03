@@ -4,7 +4,7 @@
 
 ### Chrome 插件
 
-BITAPP 目前支持 Chrome 插件版本，如果你的web页面需要使用 BITAPP 提供的API，可以安装[Chrome插件](http://google.com)。
+bitapp 目前支持 Chrome 插件版本，如果你的web页面需要使用 bitapp 提供的API，可以安装[Chrome插件](http://google.com)。
 安装成功之后，在chrome浏览器的右上角会出现小图标
 
 ![安装成功](./install-success.png)
@@ -15,7 +15,7 @@ BITAPP 目前支持 Chrome 插件版本，如果你的web页面需要使用 BITA
 
 ```js
 
-var bitapp = window.BITAPP;
+var bitapp = window.bitapp;
 bitapp.eth.accounts.getAccounts().then(accounts => { 
  // 用户账户
  console.log(accounts)
@@ -25,11 +25,11 @@ bitapp.eth.accounts.getAccounts().then(accounts => {
 
 ### FireFox 插件
 
-BITAPP FireFox 正在开发中，敬请期待。
+bitapp FireFox 正在开发中，敬请期待。
 
 ### 更多平台版本
 
-BITAPP 计划推出更多的版本，未来会推出android，ios独立客户端版本并且提供统一的API调用体验，请广大开发者敬请期待。
+bitapp 计划推出更多的版本，未来会推出android，ios独立客户端版本并且提供统一的API调用体验，请广大开发者敬请期待。
 
 ## 介绍
 
