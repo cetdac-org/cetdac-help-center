@@ -126,6 +126,16 @@ bitapp.bch.transactions.getUnspent('bchtest:qpwtjeu34nnu89yhk8hc853t0zt5fqwvc5x9
 
 [试一试](http://localhost:3001/playground?code=bitapp.bch.transactions.gettransactioncount)
 
+## bitapp.bch.address.detectAddress
+- 类型：方法
+- 参数: 
+  - address | [string] 地址
+- 返回:
+    - format | [string] 地址格式（'legacy', 'cashaddr', 'bitpay'）
+    - network | [string] 网络类型（'livenet', 'testnet'）
+
+[试一试](http://localhost:3001/playground?code=bitapp.bch.address.detectaddress)
+
 ## bitapp.bch.getBlockNumber
 - 类型：方法
 - 参数: 无
@@ -133,3 +143,16 @@ bitapp.bch.transactions.getUnspent('bchtest:qpwtjeu34nnu89yhk8hc853t0zt5fqwvc5x9
   - success
     - blockNumber | [number] 当前最新的区块数
   - fail | 失败原因
+
+[试一试](http://localhost:3001/playground?code=bitapp.bch.getblocknumber)
+
+## bitapp.bch.verifyMessage
+- 类型：方法
+- 参数: 
+  - address | [string] 地址
+  - message | [string] 原始消息
+  - signature | [string] 签名
+- 返回:
+    - result | [bool] 签名是否正确
+
+[试一试](http://localhost:3001/playground?code=bitapp.bch.verifymessage)

@@ -92,8 +92,9 @@ module.exports = {
           },
           {
             title: '常见问题',
-            collapsable: false,
-            children: []
+            children: [
+              '/zh/qa/'
+            ]
           }
         ]
       }
