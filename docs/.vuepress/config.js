@@ -80,7 +80,7 @@ module.exports = {
               '/zh/reference/bitapp/',
               '/zh/reference/wallet/',
               '/zh/reference/preferences/',
-              '/zh/reference/userContext/',
+              //'/zh/reference/userContext/',
               '/zh/reference/bip32/',
               '/zh/reference/bip39/',
               '/zh/reference/eth/',
