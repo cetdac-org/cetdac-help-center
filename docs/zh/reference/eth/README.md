@@ -2,7 +2,7 @@
 
 ETH币种的接口API
 
-## bitapp.eth.accounts.get
+## bitapp.eth.account.get
 - 类型：方法
 - 参数: 无
 - 返回: Promise
@@ -46,7 +46,7 @@ ETH币种的接口API
 
 [试一试](http://localhost:3001/playground?code=bitapp.eth.net.getid)
 
-## bitapp.eth.transactions.getTransaction
+## bitapp.eth.transaction.getTransaction
 - 类型：方法
 - 参数: txHash
 - 返回: Promise
@@ -57,7 +57,7 @@ ETH币种的接口API
 - 示例
 
 ```js
-bitapp.eth.transactions.getTransaction('0x7ffbd75c4c0c4700f7b2d2bf3551a408aa271e32509757546f292d53d2532e72').then(console.log)
+bitapp.eth.transaction.getTransaction('0x7ffbd75c4c0c4700f7b2d2bf3551a408aa271e32509757546f292d53d2532e72').then(console.log)
 // 输出
 >{
   "blockHash":"0x5696a39b8e3a64cd1ee8af7d855e88b12939d0d9e085295dade9b1fcbfe6b832",
@@ -81,7 +81,7 @@ bitapp.eth.transactions.getTransaction('0x7ffbd75c4c0c4700f7b2d2bf3551a408aa271e
 
 [试一试](http://localhost:3001/playground?code=bitapp.eth.transactions.gettransaction)
 
-## bitapp.eth.transactions.getTransactionReceipt
+## bitapp.eth.transaction.getTransactionReceipt
 - 类型：方法
 - 参数: txHash
 - 返回: Promise
@@ -92,7 +92,7 @@ bitapp.eth.transactions.getTransaction('0x7ffbd75c4c0c4700f7b2d2bf3551a408aa271e
 - 示例
 
 ```js
-bitapp.eth.transactions.getTransactionReceipt('0x7ffbd75c4c0c4700f7b2d2bf3551a408aa271e32509757546f292d53d2532e72').then(console.log)
+bitapp.eth.transaction.getTransactionReceipt('0x7ffbd75c4c0c4700f7b2d2bf3551a408aa271e32509757546f292d53d2532e72').then(console.log)
 // 输出
 >{
   "blockHash":"0x5696a39b8e3a64cd1ee8af7d855e88b12939d0d9e085295dade9b1fcbfe6b832",
@@ -112,7 +112,7 @@ bitapp.eth.transactions.getTransactionReceipt('0x7ffbd75c4c0c4700f7b2d2bf3551a40
 
 [试一试](http://localhost:3001/playground?code=bitapp.eth.transactions.gettransactionreceipt)
 
-## bitapp.eth.transactions.getTransactionCount
+## bitapp.eth.transaction.getTransactionCount
 - 类型：方法
 - 参数: address
 - 返回: Promise

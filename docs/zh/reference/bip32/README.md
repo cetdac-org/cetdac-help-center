@@ -1,0 +1,8 @@
+# bitapp.bip32
+
+[什么是bip32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki)
+
+## bitapp.bip32.fromBase58
+## bitapp.bip32.fromPrivateKey
+## bitapp.bip32.fromPublicKey
+## bitapp.bip32.fromSeed

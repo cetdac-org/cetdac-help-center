@@ -2,7 +2,7 @@
 
 BCH币种的接口API
 
-## bitapp.bch.accounts.get
+## bitapp.bch.account.get
 - 类型：方法
 - 参数: 无
 - 返回: Promise
@@ -33,7 +33,7 @@ BCH币种的接口API
 
 [试一试](http://localhost:3001/playground?code=bitapp.bch.net.getid)
 
-## bitapp.bch.transactions.getTransaction
+## bitapp.bch.transaction.getTransaction
 - 类型：方法
 - 参数: txHash
 - 返回: Promise
@@ -44,7 +44,7 @@ BCH币种的接口API
 - 示例
 
 ```js
-bitapp.bch.transactions.getTransaction('2949978d23c296d0487f2160cdd86f53dffcc3bdb6b5fb39781b5d2c6ab65acf').then(console.log)
+bitapp.bch.transaction.getTransaction('2949978d23c296d0487f2160cdd86f53dffcc3bdb6b5fb39781b5d2c6ab65acf').then(console.log)
 // 输出
 >{
   block_hash:"00000000000001d8204582e18e7073d355208abfb9328dcd07938b63b320f0a8", //区块哈希
@@ -86,7 +86,7 @@ bitapp.bch.transactions.getTransaction('2949978d23c296d0487f2160cdd86f53dffcc3bd
 
 ```js
 
-bitapp.bch.transactions.getUnspent('bchtest:qpwtjeu34nnu89yhk8hc853t0zt5fqwvc5x9spupsm').then(console.log)
+bitapp.bch.transaction.getUnspent('bchtest:qpwtjeu34nnu89yhk8hc853t0zt5fqwvc5x9spupsm').then(console.log)
 // 输出
 > {
   list: [{
@@ -116,7 +116,7 @@ bitapp.bch.transactions.getUnspent('bchtest:qpwtjeu34nnu89yhk8hc853t0zt5fqwvc5x9
 
 [试一试](http://localhost:3001/playground?code=bitapp.bch.getfee)
 
-## bitapp.bch.transactions.getTransactionCount
+## bitapp.bch.transaction.getTransactionCount
 - 类型：方法
 - 参数: address
 - 返回: Promise
@@ -133,8 +133,149 @@ bitapp.bch.transactions.getUnspent('bchtest:qpwtjeu34nnu89yhk8hc853t0zt5fqwvc5x9
 - 返回:
     - format | [string] 地址格式（'legacy', 'cashaddr', 'bitpay'）
     - network | [string] 网络类型（'livenet', 'testnet'）
+    - type | [string] 地址类型（'p2pkh', 'p2sh'）[了解详情](https://bitcoin.stackexchange.com/questions/64733/what-is-p2pk-p2pkh-p2sh-p2wpkh-eli5)
 
-[试一试](http://localhost:3001/playground?code=bitapp.bch.address.detectaddress)
+```js
+
+bitapp.bch.address.detectAddress('bchtest:qpwtjeu34nnu89yhk8hc853t0zt5fqwvc5x9spupsm')
+>
+//输出
+{
+  format: "cashaddr"，
+  network: "testnet"，
+  type: "p2pkh"
+}
+```
+
+## bitapp.bch.address.toLegacyAddress
+- 类型：方法
+- 参数: 
+  - address | [string] 地址
+- 返回:
+    - legacyAddress | [string] legacy地址格式
+
+```js
+
+bitapp.bch.address.toLegacyAddress('bchtest:qpwtjeu34nnu89yhk8hc853t0zt5fqwvc5x9spupsm')
+>
+//输出
+"moyEZqXkfpqYAwtE69f6WrPyqg4DjGmArQ"
+```
+
+## bitapp.bch.address.toCashAddress
+- 类型：方法
+- 参数: 
+  - address | [string] 地址
+- 返回:
+    - cashAddress | [string] cash地址格式
+
+[试一试](http://localhost:3001/playground?code=bitapp.bch.address.tocashaddress)
+
+## bitapp.bch.address.toBitpayAddress
+- 类型：方法
+- 参数: 
+  - address | [string] 地址
+- 返回:
+    - bitpayAddress | [string] bitpay地址格式(比特派专用地址)
+
+[试一试](http://localhost:3001/playground?code=bitapp.bch.address.tobitpayaddress)
+
+## bitapp.bch.address.isLegacyAddress
+- 类型：方法
+- 参数: 
+  - address | [string] 地址
+- 返回:
+    - isLegacyAddress | [bool]
+
+```js
+
+bitapp.bch.address.isLegacyAddress('bchtest:qpwtjeu34nnu89yhk8hc853t0zt5fqwvc5x9spupsm')
+>
+//输出
+false
+```
+
+[试一试](http://localhost:3001/playground?code=bitapp.bch.address.islegacyaddress)
+
+## bitapp.bch.address.isCashAddress
+- 类型：方法
+- 参数: 
+  - address | [string] 地址
+- 返回:
+    - isCashAddress | [bool]
+
+[试一试](http://localhost:3001/playground?code=bitapp.bch.address.iscashaddress)
+
+## bitapp.bch.address.isBitpayAddress
+- 类型：方法
+- 参数: 
+  - address | [string] 地址
+- 返回:
+    - isBitpayAddress | [bool]
+
+[试一试](http://localhost:3001/playground?code=bitapp.bch.address.isbitpayaddress)
+
+## bitapp.bch.address.isMainnetAddress
+- 类型：方法
+- 参数: 
+  - address | [string] 地址
+- 返回:
+    - isMainnetAddress | [bool]
+
+[试一试](http://localhost:3001/playground?code=bitapp.bch.address.ismainnetaddress)
+
+## bitapp.bch.address.isTestnetAddress
+- 类型：方法
+- 参数: 
+  - address | [string] 地址
+- 返回:
+    - isTestnetAddress | [bool]
+
+[试一试](http://localhost:3001/playground?code=bitapp.bch.address.istestnetaddress)
+
+## bitapp.bch.address.isP2PKHAddress
+
+[什么是P2PKH](https://bitcoin.stackexchange.com/questions/64733/what-is-p2pk-p2pkh-p2sh-p2wpkh-eli5)
+
+- 类型：方法
+- 参数: 
+  - address | [string] 地址
+- 返回:
+    - isP2PKHAddress | [bool]
+
+[试一试](http://localhost:3001/playground?code=bitapp.bch.address.isp2pkhaddress)
+
+## bitapp.bch.address.isP2SHAddress
+
+[什么是P2SH](https://bitcoin.stackexchange.com/questions/64733/what-is-p2pk-p2pkh-p2sh-p2wpkh-eli5)
+
+- 类型：方法
+- 参数: 
+  - address | [string] 地址
+- 返回:
+    - isP2SHAddress | [bool]
+
+[试一试](http://localhost:3001/playground?code=bitapp.bch.address.isp2shaddress)
+
+## bitapp.bch.util.bchToSatoshi
+
+- 类型：方法
+- 参数: 
+  - val | [number or string] 以bch为单位的数值
+- 返回:
+    - satoshi | [number] 返回以satoshi为单位的数值
+
+[试一试](http://localhost:3001/playground?code=bitapp.bch.util.bchtosatoshi)
+
+## bitapp.bch.util.satoshiToBch
+
+- 类型：方法
+- 参数: 
+  - val | [number or string] 以satoshi为单位的数值
+- 返回:
+    - bch | [number] 返回以bch为单位的数值
+
+[试一试](http://localhost:3001/playground?code=bitapp.bch.util.satoshitobch)
 
 ## bitapp.bch.getBlockNumber
 - 类型：方法
