@@ -124,6 +124,17 @@ bitapp.eth.transaction.getTransactionReceipt('0x7ffbd75c4c0c4700f7b2d2bf3551a408
 
 [试一试](http://localhost:3001/playground?code=bitapp.eth.transactions.gettransactioncount)
 
+
+## bitapp.eth.gasPrice
+- 类型：方法
+- 参数: 无
+- 返回: Promise
+  - success
+    - gasPrice | [number] 获取最新gas price, 单位是[wei](http://eth-converter.com/)。[了解更多](https://ethgasstation.info/)
+  - fail | 失败原因
+
+[试一试](http://localhost:3001/playground?code=bitapp.eth.gasprice)
+
 ## bitapp.eth.gasPrice
 - 类型：方法
 - 参数: 无
