@@ -124,16 +124,26 @@ bitapp.eth.transaction.getTransactionReceipt('0x7ffbd75c4c0c4700f7b2d2bf3551a408
 
 [试一试](http://localhost:3001/playground?code=bitapp.eth.transactions.gettransactioncount)
 
-
-## bitapp.eth.gasPrice
+## bitapp.eth.currency.getCurrency
 - 类型：方法
 - 参数: 无
 - 返回: Promise
   - success
-    - gasPrice | [number] 获取最新gas price, 单位是[wei](http://eth-converter.com/)。[了解更多](https://ethgasstation.info/)
+    - currency | [string] 用户当前选择的法币类型('cny', 'usd')
   - fail | 失败原因
 
-[试一试](http://localhost:3001/playground?code=bitapp.eth.gasprice)
+[试一试](http://localhost:3001/playground?code=bitapp.eth.currency.getcurrency)
+
+## bitapp.eth.currency.getRate
+- 类型：方法
+- 参数: 无
+- 返回: Promise
+  - success
+    - rate | [number] 当前汇率
+  - fail | 失败原因
+
+[试一试](http://localhost:3001/playground?code=bitapp.eth.currency.getrate)
+
 
 ## bitapp.eth.gasPrice
 - 类型：方法

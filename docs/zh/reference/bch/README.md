@@ -257,6 +257,27 @@ false
 
 [试一试](http://localhost:3001/playground?code=bitapp.bch.address.isp2shaddress)
 
+
+## bitapp.bch.currency.getCurrency
+- 类型：方法
+- 参数: 无
+- 返回:
+  - success
+    - currency | [string] 用户当前选择的法币类型('cny', 'usd')
+  - fail | 失败原因
+
+[试一试](http://localhost:3001/playground?code=bitapp.bch.currency.getcurrency)
+
+## bitapp.bch.currency.getRate
+- 类型：方法
+- 参数: 无
+- 返回:
+  - success
+    - rate | [number] 当前汇率
+  - fail | 失败原因
+
+[试一试](http://localhost:3001/playground?code=bitapp.bch.currency.getrate)
+
 ## bitapp.bch.util.bchToSatoshi
 
 - 类型：方法
