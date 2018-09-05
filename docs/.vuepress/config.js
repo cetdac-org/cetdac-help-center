@@ -89,8 +89,7 @@ module.exports = {
           },
           {
             title: '更多相关教程',
-            collapsable: false,
-            children: []
+            children: ['/zh/tutorials/']
           },
           {
             title: '常见问题',

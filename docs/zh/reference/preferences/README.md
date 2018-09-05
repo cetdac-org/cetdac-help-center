@@ -1,5 +1,7 @@
 # bitapp.preferences
 
+用户配置模块
+
 ## bitapp.preferences.get
 
 用户钱包当前配置查询
