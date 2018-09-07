@@ -4,7 +4,7 @@
 
 ### Chrome 插件
 
-bitapp 目前支持 Chrome 插件版本，如果你的web页面需要使用 bitapp 提供的API，可以安装[Chrome插件](http://google.com)。
+bitapp 目前支持 Chrome 插件版本，如果你的web页面需要使用 bitapp 提供的API，可以安装[Chrome插件](http://www.bitapp.net/)。
 安装成功之后，在chrome浏览器的右上角会出现小图标
 
 ![安装成功](./install-success.png)
