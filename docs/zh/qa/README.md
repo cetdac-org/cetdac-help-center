@@ -4,7 +4,7 @@
 答：MetaMask目前只支持ETH，BitApp现已支持ETH、BCH，未来还将支持更多币种，并且提供统一的SDK调用接口，让你的应用快速支持不同公链。
 
 ## 使用BitApp SDK开发的DApp能否兼容其它钱包？
-答：BitApp SDK兼容主流钱包，您一次开发即可支持多条公链以及主流钱包。
+答：BitApp SDK兼容主流钱包，一次开发即可支持多条公链以及主流钱包。
 
 ## 我为什么要使用BitApp SDK开发DApp?
 答：使用BitApp SDK开发应用，可以实现：
