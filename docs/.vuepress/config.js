@@ -13,7 +13,7 @@ module.exports = {
     '/zh/': {
       lang: 'zh',
       title: '开发者文档 | BITAPP',
-      description: '参考手册',
+      description: ' ',
       head: [
         ['link', { rel: 'icon', href: '/favicon.ico' }]
       ]
@@ -22,7 +22,7 @@ module.exports = {
   themeConfig: {
     lastUpdated: 'Last Updated',
     nav: [
-      { text: 'BITAPP插件钱包', link: 'https://www.bitapp.pro/' },
+      { text: 'BITAPP Wallet', link: 'https://www.bitapp.pro/' },
       { text: 'Developer', link: 'https://developer.bitapp.pro/' },
       { text: 'Github', link: 'https://github.com/bitapp' }
     ],
@@ -53,7 +53,7 @@ module.exports = {
       },
       '/zh/':{
         nav: [
-          { text: 'BITAPP插件钱包', link: 'https://www.bitapp.pro/' },
+          { text: 'BITAPP钱包', link: 'https://www.bitapp.pro/' },
           { text: '开发者站', link: 'https://developer.bitapp.pro/' },
           { text: 'Github', link: 'https://github.com/bitapp' }
         ],
@@ -68,23 +68,23 @@ module.exports = {
             ]
           },
           {
-            title: '示例',
-            children: [
-              '/zh/demos/'
-            ]
-          },
-          {
             title: 'API文档',
             collapsable: false,
             children: [
               '/zh/reference/bitapp/',
               '/zh/reference/wallet/',
-              '/zh/reference/preferences/',
+              '/zh/reference/preference/',
               //'/zh/reference/userContext/',
               '/zh/reference/bip32/',
               '/zh/reference/bip39/',
               '/zh/reference/eth/',
               '/zh/reference/bch/'
+            ]
+          },
+          {
+            title: '示例',
+            children: [
+              '/zh/demos/'
             ]
           },
           {

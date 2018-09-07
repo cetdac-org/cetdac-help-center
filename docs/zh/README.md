@@ -5,11 +5,11 @@ actionText: 上手指南 →
 actionLink: /zh/getstarted/
 features:
 - title: 多种开发语言
-  details: 除了javascript，我们未来还将提供android，ios版本的sdk，对于服务端的开发者，我们将提供nodejs和python版本的sdk。
+  details: 支持JavaScript, nodeJS, Python等多种开发语言, 提供Android, iOS原生SDK。
 - title: 多公链统一API
-  details: 我们为多条公链（eth, bch）提供了统一的API调用接口，旨在帮助开发者快速高效的完成多条公链的支持。
+  details: 为多条公链提供统一的API调用接口，支持ETH、BCH以及EOS，旨在帮助开发者快速高效的完成多条公链的支持。
 - title: 集成查询API
-  details: BITAPP sdk集成了常用的余额查询，交易记录查询等功能，开发者将无需再请求第三方服务获取，并且我们的服务将永久免费。
+  details: 集成常用的余额、交易以及区块等信息查询接口，开发者将无需再从第三方服务获取。查询接口永久免费。
 footer: Copyright © BITAPP Team
 ---
 

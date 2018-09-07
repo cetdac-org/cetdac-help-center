@@ -1,8 +1,8 @@
-# bitapp.preferences
+# bitapp.preference
 
 用户配置模块
 
-## bitapp.preferences.get
+## bitapp.preference.get
 
 用户钱包当前配置查询
 
@@ -23,7 +23,7 @@
 - 示例
 
 ```js
-bitapp.preferences.get().then(console.log)
+bitapp.preference.get().then(console.log)
 // 输出
 >{
   currency:"¥",
@@ -35,4 +35,4 @@ bitapp.preferences.get().then(console.log)
 }
 ```
 
-[试一试](http://localhost:3001/playground?code=bitapp.preferences.get)
+[试一试](http://localhost:3001/playground?code=bitapp.preference.get)
