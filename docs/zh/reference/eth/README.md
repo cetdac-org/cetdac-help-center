@@ -28,7 +28,7 @@ ETH币种的接口API
 
 ## bitapp.eth.getBalance
 - 类型：方法
-- 参数: address
+- 参数: address | [string] 选填，不填则为默认账户
 - 返回: Promise
   - success
     - balance | [number] 查询地址余额，单位是[wei](http://eth-converter.com/),1eth = 1e18 wei
