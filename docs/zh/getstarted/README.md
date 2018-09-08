@@ -4,14 +4,14 @@
 
 ### Chrome 插件
 
-bitapp 目前支持 Chrome 插件版本，如果你的web页面需要使用 bitapp 提供的API，可以安装[Chrome插件](http://www.bitapp.net/)。
-安装成功之后，在chrome浏览器的右上角会出现小图标
+BitApp Chrome 插件现已上线，如果你的web页面需要使用 BitApp 提供的API，需要先安装[Chrome插件](http://www.bitapp.net)。
+安装成功之后，在 Chrome 浏览器的右上角会出现小图标
 
 ![安装成功](./install-success.png)
 
 如果在安装过程中遇到什么问题，可以直接到[github](https://github.com/bitapp)提issue给我们或者给 [support@bitapp.pro](mailto:support@bitapp.pro)
 
-安装完成之后，在新tab中打开你所开发的网页，AppRoles对象会被自动挂载到window对象下
+安装完成之后，在新tab中打开你所开发的网页，bitapp对象会被自动挂载到window对象下
 
 ```js
 
@@ -25,15 +25,15 @@ bitapp.eth.accounts.getAccounts().then(accounts => {
 
 ### FireFox 插件
 
-bitapp FireFox 正在开发中，敬请期待。
+BitApp FireFox 正在开发中，敬请期待。
 
 ### 更多平台版本
 
-bitapp 计划推出更多的版本，未来会推出android，ios独立客户端版本并且提供统一的API调用体验，请广大开发者敬请期待。
+BitApp 计划推出更多的版本，未来会推出android，ios独立客户端版本并且提供统一的API调用体验，敬请期待。
 
 ## 介绍
 
-bitapp 的宗旨
+BitApp 旨在为开发者提供区块链基础设施服务，降低开发者开发区块链应用门槛。将陆续推出涵盖web、移动端并支持多公链的产品与相应SDK。帮助开发者构建成功的区块链产品，是我们的第一要务。
 
 ## 特性
 
