@@ -96,6 +96,12 @@ module.exports = {
             children: [
               '/zh/qa/'
             ]
+          },
+          {
+            title: '附录',
+            children: [
+              '/zh/append/'
+            ]
           }
         ]
       }

@@ -2,7 +2,54 @@
 
 ETH币种的接口API
 
-## bitapp.eth.account.get
+## bitapp.eth
+
+### bitapp.eth.gasPrice
+- 类型：方法
+- 参数: 无
+- 返回: Promise
+  - success
+    - gasPrice | [number] 获取最新gas price, 单位是[wei](http://eth-converter.com/)。[了解更多](https://ethgasstation.info/)
+  - fail | 失败原因
+
+[试一试](http://localhost:3002/playground?code=bitapp.eth.gasprice)
+
+### bitapp.eth.getBlockNumber
+- 类型：方法
+- 参数: 无
+- 返回: Promise
+  - success
+    - blockNumber | [number] 当前最新的区块数
+  - fail | 失败原因
+
+[试一试](http://localhost:3002/playground?code=bitapp.eth.getblocknumber)
+
+### bitapp.eth.getRawInstance
+- bitapp对ETH的web3方法进行了二次封装，为了给用户带来更好的调用体验，以及更统一的接口输出，但我们对于高级用户，也可以直接暴露web3的原生对象，开发者拿到原生对象之后就可以使用原生的web3方法，bitapp使用的是web3的1.0.0-beta.34版本
+- 类型：方法
+- 参数: 无
+- 返回: Promise
+  - success
+    - 原始web3对象
+  - fail | 失败原因
+
+[试一试](http://localhost:3002/playground?code=bitapp.eth.getrawinstance)
+
+### bitapp.eth.getBalance
+- 类型：方法
+- 参数: address | [string] 选填，不填则为默认账户
+- 返回: Promise
+  - success
+    - balance | [number] 查询地址余额，单位是[wei](http://eth-converter.com/),1eth = 1e18 wei
+  - fail | 失败原因
+
+[试一试](http://localhost:3002/playground?code=bitapp.eth.getbalance)
+
+## bitapp.eth.account
+
+账户模块
+
+### bitapp.eth.account.get
 - 类型：方法
 - 参数: 无
 - 返回: Promise
@@ -11,7 +58,7 @@ ETH币种的接口API
     - isUnlocked | [bool] 钱包是否处于解锁状态，如果钱包处于锁定状态，则获取不到账户数据
   - WalletLockError 当前钱包处于锁定状态
 
-[试一试](http://localhost:3001/playground?code=bitapp.eth.accounts.get)
+[试一试](http://localhost:3002/playground?code=bitapp.eth.accounts.get)
 
 
 <!-- ## bitapp.eth.accounts.create
@@ -26,27 +73,36 @@ ETH币种的接口API
 
 [试一试](http://localhost:3001/playground?code=bitapp.eth.accounts.create) -->
 
-## bitapp.eth.getBalance
-- 类型：方法
-- 参数: address | [string] 选填，不填则为默认账户
-- 返回: Promise
-  - success
-    - balance | [number] 查询地址余额，单位是[wei](http://eth-converter.com/),1eth = 1e18 wei
-  - fail | 失败原因
+## bitapp.eth.net
 
-[试一试](http://localhost:3001/playground?code=bitapp.eth.getbalance)
+网络模块
 
-## bitapp.eth.net.getId
+### bitapp.eth.net.getId
 - 类型：方法
 - 参数: 无
 - 返回: Promise
   - success
-    - networkid | [string] 网络环境数字编号(MAINNET = 1, ROPSTEN = 3, RINKEYBY = 4, KOVAN = 42)
+    - networkid | [string] 网络环境数字编号[完整网络类型](/zh/append/#完整网络类型)
   - fail | 失败原因
 
-[试一试](http://localhost:3001/playground?code=bitapp.eth.net.getid)
+[试一试](http://localhost:3002/playground?code=bitapp.eth.net.getid)
 
-## bitapp.eth.transaction.getTransaction
+
+### bitapp.eth.net.getProvider
+- 类型：方法
+- 参数: 无
+- 返回: Promise
+  - success
+    - network | [string] 网络环境[完整网络类型](/zh/append/#完整网络类型)
+  - fail | 失败原因
+
+[试一试](http://localhost:3002/playground?code=bitapp.eth.net.getprovider)
+
+## bitapp.eth.transaction
+
+交易模块
+
+### bitapp.eth.transaction.getTransaction
 - 类型：方法
 - 参数: txHash
 - 返回: Promise
@@ -79,9 +135,9 @@ bitapp.eth.transaction.getTransaction('0x7ffbd75c4c0c4700f7b2d2bf3551a408aa271e3
 
 - 了解更多 [https://web3js.readthedocs.io/en/1.0/web3-eth.html#gettransaction](https://web3js.readthedocs.io/en/1.0/web3-eth.html#gettransaction)
 
-[试一试](http://localhost:3001/playground?code=bitapp.eth.transactions.gettransaction)
+[试一试](http://localhost:3002/playground?code=bitapp.eth.transaction.gettransaction)
 
-## bitapp.eth.transaction.getTransactionReceipt
+### bitapp.eth.transaction.getTransactionReceipt
 - 类型：方法
 - 参数: txHash
 - 返回: Promise
@@ -110,9 +166,9 @@ bitapp.eth.transaction.getTransactionReceipt('0x7ffbd75c4c0c4700f7b2d2bf3551a408
 ```
 - 了解更多 [https://web3js.readthedocs.io/en/1.0/web3-eth.html#gettransactionreceipt](https://web3js.readthedocs.io/en/1.0/web3-eth.html#gettransactionreceipt)
 
-[试一试](http://localhost:3001/playground?code=bitapp.eth.transactions.gettransactionreceipt)
+[试一试](http://localhost:3002/playground?code=bitapp.eth.transaction.gettransactionreceipt)
 
-## bitapp.eth.transaction.getTransactionCount
+### bitapp.eth.transaction.getTransactionCount
 - 类型：方法
 - 参数: address
 - 返回: Promise
@@ -122,9 +178,13 @@ bitapp.eth.transaction.getTransactionReceipt('0x7ffbd75c4c0c4700f7b2d2bf3551a408
 
 - 了解更多 [https://web3js.readthedocs.io/en/1.0/web3-eth.html#gettransactioncount](https://web3js.readthedocs.io/en/1.0/web3-eth.html#gettransactioncount)
 
-[试一试](http://localhost:3001/playground?code=bitapp.eth.transactions.gettransactioncount)
+[试一试](http://localhost:3002/playground?code=bitapp.eth.transaction.gettransactioncount)
 
-## bitapp.eth.currency.getCurrency
+## bitapp.eth.currency
+
+汇率模块
+
+### bitapp.eth.currency.getCurrency
 - 类型：方法
 - 参数: 无
 - 返回: Promise
@@ -132,9 +192,9 @@ bitapp.eth.transaction.getTransactionReceipt('0x7ffbd75c4c0c4700f7b2d2bf3551a408
     - currency | [string] 用户当前选择的法币类型('cny', 'usd')
   - fail | 失败原因
 
-[试一试](http://localhost:3001/playground?code=bitapp.eth.currency.getcurrency)
+[试一试](http://localhost:3002/playground?code=bitapp.eth.currency.getcurrency)
 
-## bitapp.eth.currency.getRate
+### bitapp.eth.currency.getRate
 - 类型：方法
 - 参数: 无
 - 返回: Promise
@@ -142,34 +202,4 @@ bitapp.eth.transaction.getTransactionReceipt('0x7ffbd75c4c0c4700f7b2d2bf3551a408
     - rate | [number] 当前汇率
   - fail | 失败原因
 
-[试一试](http://localhost:3001/playground?code=bitapp.eth.currency.getrate)
-
-
-## bitapp.eth.gasPrice
-- 类型：方法
-- 参数: 无
-- 返回: Promise
-  - success
-    - gasPrice | [number] 获取最新gas price, 单位是[wei](http://eth-converter.com/)。[了解更多](https://ethgasstation.info/)
-  - fail | 失败原因
-
-[试一试](http://localhost:3001/playground?code=bitapp.eth.gasprice)
-
-## bitapp.eth.getBlockNumber
-- 类型：方法
-- 参数: 无
-- 返回: Promise
-  - success
-    - blockNumber | [number] 当前最新的区块数
-  - fail | 失败原因
-
-[试一试](http://localhost:3001/playground?code=bitapp.eth.getblocknumber)
-
-## bitapp.eth.getRawInstance
-- bitapp对ETH的web3方法进行了二次封装，为了给用户带来更好的调用体验，以及更统一的接口输出，但我们对于高级用户，也可以直接暴露web3的原生对象，开发者拿到原生对象之后就可以使用原生的web3方法，bitapp使用的是web3的1.0.0-beta.34版本
-- 类型：方法
-- 参数: 无
-- 返回: Promise
-  - success
-    - 原始web3对象
-  - fail | 失败原因
+[试一试](http://localhost:3002/playground?code=bitapp.eth.currency.getrate)

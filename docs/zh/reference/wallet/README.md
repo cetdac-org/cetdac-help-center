@@ -1,8 +1,8 @@
 # bitapp.wallet
 
-钱包模块提供跨语言的通用钱包管理API
+钱包模块，提供跨语言的通用钱包管理API
 
-## bitapp.wallet.requestUnlock
+<!-- ## bitapp.wallet.requestUnlock
 
 请求解锁
 
@@ -14,9 +14,9 @@
     - status | [string] 当解锁成功之后，返回'success'
   - fail
 
-[试一试](http://localhost:3001/playground?code=bitapp.wallet.requestunlock)
+[试一试](http://localhost:3001/playground?code=bitapp.wallet.requestunlock) -->
 
-## bitapp.wallet.isUnlock
+## bitapp.wallet.isUnlocked
 
 判断 bitapp 插件钱包是否处于解锁状态
 
@@ -27,7 +27,7 @@
     - isUnlocked | [bool] 如果钱包处于解锁状态，则值为true，如果钱包为锁定状态，则值为false
   - fail
 
-[试一试](http://localhost:3001/playground?code=bitapp.wallet.isunlock)
+[试一试](http://localhost:3002/playground?code=bitapp.wallet.isunlocked)
 
 ## bitapp.wallet.requestPay
 
@@ -36,7 +36,7 @@
 - 类型：方法
 - 参数: 
   - appName | [string] 发起申请的平台
-  - symbol | [string] 币种 ('eth', 'bch', '其他代币')。[完整代币列表](占位符)
+  - symbol | [string] 币种 ('eth', 'bch', '其他代币')。[完整代币列表](/zh/append/#完整代币列表)
   - amount | [string] 转账数量 (eth: 单位[wei](http://eth-converter.com/)。[了解更多](https://ethgasstation.info/)) 或者交易手续费 (bch: 单位[satoshi](https://en.bitcoin.it/wiki/Satoshi_(unit)), 1bch = 1e8 satoshi)
   - to | [string] 转账地址
   - gasPriceOrFee | [string] gasPrice (eth: 单位[wei](http://eth-converter.com/)。[了解更多](https://ethgasstation.info/)) 或者交易手续费 fee(bch: 单位[satoshi](https://en.bitcoin.it/wiki/Satoshi_(unit)), 1bch = 1e8 satoshi) 
@@ -52,14 +52,25 @@
 - 示例
 
 ```js
-bitapp.wallet.requestPay('Demo','bch', (1e8).toString(),'bchtest:qpwtjeu34nnu89yhk8hc853t0zt5fqwvc5x9spupsm','1000','fuck','购买以太猫').then(console.log)
+bitapp.bch.net.getId().then(network => {
+  bitapp.wallet.requestPay(
+    'Demo',
+    'bch', 
+    (1e8).toString(), 
+    (network == 1 ? 'bitcoincash:qzd0m9mp4avt5uzx3vq56xc5rdh459t5lvz2npqhdg' : 'bchtest:qpwtjeu34nnu89yhk8hc853t0zt5fqwvc5x9spupsm'),
+    '1000',
+    '',
+    '购买以太猫').then(console.log)
+})
+
 // 输出，用户取消
 >{
   action: "CANCEL_PAY"
 }
 ```
 
-[试一试](http://localhost:3001/playground?code=bitapp.wallet.requestpay)
+
+[试一试](http://localhost:3002/playground?code=bitapp.wallet.requestpay)
 
 ## bitapp.wallet.requestSign
 
@@ -68,7 +79,7 @@ bitapp.wallet.requestPay('Demo','bch', (1e8).toString(),'bchtest:qpwtjeu34nnu89y
 - 类型：方法
 - 参数: 
   - appName | [string] 发起申请的平台
-  - symbol | [string] 币种 ('eth', 'bch', '其他代币')。[完整代币列表](占位符)
+  - symbol | [string] 币种 ('eth', 'bch')。
   - dataToSign | [string] 需要签名的数据
 - 返回: Promise
   - success
@@ -87,4 +98,4 @@ bitapp.wallet.requestSign('Demo','bch','注册账户').then(console.log)
 }
 ```
 
-[试一试](http://localhost:3001/playground?code=bitapp.wallet.requestsign)
+[试一试](http://localhost:3002/playground?code=bitapp.wallet.requestsign)
