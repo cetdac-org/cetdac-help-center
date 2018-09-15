@@ -9,7 +9,7 @@ BitApp Chrome 插件现已上线，如果你的web页面需要使用 BitApp 提�
 
 ![安装成功](./install-success.png)
 
-如果在安装过程中遇到什么问题，可以直接到[github](https://github.com/bitapp)提issue给我们或者给 [support@bitapp.pro](mailto:alan@bitapp.pro)
+如果在安装过程中遇到什么问题，可以直接到[github](https://github.com/bitapp)提issue给我们或者给 [alan@bitapp.pro](mailto:alan@bitapp.pro)
 
 安装完成之后，在新tab中打开你所开发的网页，bitapp对象会被自动挂载到window对象下
 
