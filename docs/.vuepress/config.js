@@ -22,8 +22,8 @@ module.exports = {
   themeConfig: {
     lastUpdated: 'Last Updated',
     nav: [
-      { text: 'BITAPP Wallet', link: 'https://www.bitapp.pro/' },
-      { text: 'Developer', link: 'https://developer.bitapp.pro/' },
+      { text: 'BITAPP Wallet', link: 'http://www.bitapp.net/' },
+      { text: 'Developer', link: 'http://developer.bitapp.net/' },
       { text: 'Github', link: 'https://github.com/bitapp' }
     ],
     locales:{
@@ -53,8 +53,8 @@ module.exports = {
       },
       '/zh/':{
         nav: [
-          { text: 'BITAPP钱包', link: 'https://www.bitapp.pro/' },
-          { text: '开发者站', link: 'https://developer.bitapp.pro/' },
+          { text: 'BITAPP钱包', link: 'http://www.bitapp.net/' },
+          { text: '开发者站', link: 'http://developer.bitapp.net/' },
           { text: 'Github', link: 'https://github.com/bitapp' }
         ],
         selectText: '选择语言',
