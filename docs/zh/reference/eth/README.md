@@ -185,6 +185,40 @@ bitapp.eth.transaction.getTransactionReceipt('0x7ffbd75c4c0c4700f7b2d2bf3551a408
 
 智能合约模块
 
+### bitapp.eth.contract.create
+
+连接一个智能合约
+
+- 类型：方法
+- 参数: 
+  - abi | [object] 智能合约abi[什么是abi](https://web3js.readthedocs.io/en/1.0/web3-eth-abi.html#eth-abi)
+  - address | [string] 合约地址
+  - options
+    - from | [string] 调用方
+    - gasLimit | [number] 最大gas 单位是[wei](http://eth-converter.com/)
+    - gasPrice | [string] gas price, 单位是[wei](http://eth-converter.com/)。[了解更多](https://ethgasstation.info/)
+    - data | [string] 合约的byte code
+- 返回: Promise
+  - success
+    - contract | [Contract] 返回Contract 对象
+  - fail | 失败原因
+
+### contractInstance.call
+
+调用智能合约对象的方法
+
+- 类型：方法
+- 参数: 
+  - method | [string] 需要调用的方法名
+  - args | [array] 参数数组
+  - appName | [string] 应用名称
+  - desc | [string] 对本次调用的描述
+- 返回: Promise
+  - success
+    - txhash | [string] 本次调用txhash
+  - fail | 失败原因
+
+
 ## bitapp.eth.currency
 
 汇率模块
