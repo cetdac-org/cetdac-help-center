@@ -6,13 +6,13 @@ BCH币种的接口API
 
 ### bitapp.bch.getBalance
 - 类型：方法
-- 参数: address | [string] 选填，不填则为默认账户
+- 参数: address | [string] 需要查询余额的地址
 - 返回: Promise
   - success
     - balance | [number] 查询地址余额，单位是[satoshi](https://en.bitcoin.it/wiki/Satoshi_(unit)), 1bch = 1e8 satoshi
   - fail | 失败原因
 
-[试一试](http://localhost:3002/playground?code=bitapp.eth.getbalance)
+[试一试](http://developer.bitapp.net/playground?code=bitapp.bch.getbalance)
 
 ### bitapp.bch.getFee
 
@@ -25,7 +25,7 @@ BCH币种的接口API
     - fee | [number] 获取交易手续费，单位是[satoshi](https://en.bitcoin.it/wiki/Satoshi_(unit)), 1bch = 1e8 satoshi
   - fail | 失败原因
 
-[试一试](http://localhost:3002/playground?code=bitapp.bch.getfee)
+[试一试](http://developer.bitapp.net/playground?code=bitapp.bch.getfee)
 
 
 ### bitapp.bch.getBlockNumber
@@ -36,7 +36,7 @@ BCH币种的接口API
     - blockNumber | [number] 当前最新的区块数
   - fail | 失败原因
 
-[试一试](http://localhost:3002/playground?code=bitapp.bch.getblocknumber)
+[试一试](http://developer.bitapp.net/playground?code=bitapp.bch.getblocknumber)
 
 ### bitapp.bch.verifyMessage
 - 类型：方法
@@ -47,7 +47,7 @@ BCH币种的接口API
 - 返回:
     - result | [bool] 签名是否正确
 
-[试一试](http://localhost:3002/playground?code=bitapp.bch.verifymessage)
+[试一试](http://developer.bitapp.net/playground?code=bitapp.bch.verifymessage)
 
 ## bitapp.bch.account
 
@@ -62,31 +62,31 @@ BCH币种的接口API
   - fail
     - WalletLockError 当前钱包处于锁定状态
 
-[试一试](http://localhost:3002/playground?code=bitapp.bch.account.get)
+[试一试](http://developer.bitapp.net/playground?code=bitapp.bch.account.get)
 
 ## bitapp.bch.net
 
 网络模块
 
-## bitapp.bch.net.getId
+### bitapp.bch.net.getId
 - 类型：方法
 - 参数: 无
 - 返回: Promise
   - success
-    - networkid | [string] 网络环境数字编号(1 = MAINNET, 2 = TESTNET)[完整网络类型](/zh/append/#完整网络类型)
+    - networkid | [string] 网络环境数字编号(1 = mainnet, 2 = testnet)[完整网络类型](/zh/append/#完整网络类型)
   - fail | 失败原因
 
-[试一试](http://localhost:3002/playground?code=bitapp.bch.net.getid)
+[试一试](http://developer.bitapp.net/playground?code=bitapp.bch.net.getid)
 
-## bitapp.bch.net.getProvider
+### bitapp.bch.net.getNetworkType
 - 类型：方法
 - 参数: 无
 - 返回: Promise
   - success
-    - network | [string] 网络环境(MAINNET = 1, TESTNET = 2)[完整网络类型](/zh/append/#完整网络类型)
+    - network | [string] 网络环境(mainnet = 1, testnet = 2)[完整网络类型](/zh/append/#完整网络类型)
   - fail | 失败原因
 
-[试一试](http://localhost:3002/playground?code=bitapp.bch.net.getid)
+[试一试](http://developer.bitapp.net/playground?code=bitapp.bch.net.getnetworktype)
 
 ## bitapp.bch.transaction
 
@@ -118,7 +118,7 @@ bitapp.bch.transaction.getUnspent('bchtest:qpwtjeu34nnu89yhk8hc853t0zt5fqwvc5x9s
 
 ```
 
-[试一试](http://localhost:3002/playground?code=bitapp.bch.transaction.getunspent)
+[试一试](http://developer.bitapp.net/playground?code=bitapp.bch.transaction.getunspent)
 
 ### bitapp.bch.transaction.getTransaction
 - 类型：方法
@@ -160,7 +160,7 @@ bitapp.bch.transaction.getTransaction('2949978d23c296d0487f2160cdd86f53dffcc3bdb
   }
 ```
 
-[试一试](http://localhost:3002/playground?code=bitapp.bch.transaction.gettransaction)
+[试一试](http://developer.bitapp.net/playground?code=bitapp.bch.transaction.gettransaction)
 
 <!-- ### bitapp.bch.transaction.getTransactionCount
 - 类型：方法
@@ -170,7 +170,7 @@ bitapp.bch.transaction.getTransaction('2949978d23c296d0487f2160cdd86f53dffcc3bdb
     - transactionCount | [number] 从当前地址发出的交易数
   - fail | 失败原因
 
-[试一试](http://localhost:3002/playground?code=bitapp.bch.transactions.gettransactioncount) -->
+[试一试](http://developer.bitapp.net/playground?code=bitapp.bch.transactions.gettransactioncount) -->
 
 ## bitapp.bch.address
 
@@ -181,9 +181,9 @@ bitapp.bch.transaction.getTransaction('2949978d23c296d0487f2160cdd86f53dffcc3bdb
 - 参数: 
   - address | [string] 地址
 - 返回:
-    - format | [string] 地址格式（'legacy', 'cashaddr', 'bitpay'）
-    - network | [string] 网络类型（'livenet', 'testnet'）
-    - type | [string] 地址类型（'p2pkh', 'p2sh'）[了解详情](https://bitcoin.stackexchange.com/questions/64733/what-is-p2pk-p2pkh-p2sh-p2wpkh-eli5)
+    - format | [string] 地址格式（'legacy', 'cashaddr', 'bitpay'）[完整地址格式](/zh/append/#地址格式)
+    - network | [string] 网络类型（'livenet', 'testnet'）[完整网络类型](/zh/append/#完整网络类型)
+    - type | [string] 地址类型（'pubkeyhash', 'scripthash'）[完整地址类型](/zh/append/#地址类型) [了解详情](https://bitcoin.stackexchange.com/questions/64733/what-is-p2pk-p2pkh-p2sh-p2wpkh-eli5)
 
 ```js
 
@@ -193,9 +193,11 @@ bitapp.bch.address.detectAddress('bchtest:qpwtjeu34nnu89yhk8hc853t0zt5fqwvc5x9sp
 {
   format: "cashaddr"，
   network: "testnet"，
-  type: "p2pkh"
+  type: "pubkeyhash"
 }
 ```
+
+[试一试](http://developer.bitapp.net/playground?code=bitapp.bch.address.detectaddress)
 
 ### bitapp.bch.address.toLegacyAddress
 - 类型：方法
@@ -212,6 +214,8 @@ bitapp.bch.address.toLegacyAddress('bchtest:qpwtjeu34nnu89yhk8hc853t0zt5fqwvc5x9
 "moyEZqXkfpqYAwtE69f6WrPyqg4DjGmArQ"
 ```
 
+[试一试](http://developer.bitapp.net/playground?code=bitapp.bch.address.tolegacyaddress)
+
 ### bitapp.bch.address.toCashAddress
 - 类型：方法
 - 参数: 
@@ -219,7 +223,7 @@ bitapp.bch.address.toLegacyAddress('bchtest:qpwtjeu34nnu89yhk8hc853t0zt5fqwvc5x9
 - 返回:
     - cashAddress | [string] cash地址格式
 
-[试一试](http://localhost:3002/playground?code=bitapp.bch.address.tocashaddress)
+[试一试](http://developer.bitapp.net/playground?code=bitapp.bch.address.tocashaddress)
 
 ### bitapp.bch.address.toBitpayAddress
 - 类型：方法
@@ -228,7 +232,7 @@ bitapp.bch.address.toLegacyAddress('bchtest:qpwtjeu34nnu89yhk8hc853t0zt5fqwvc5x9
 - 返回:
     - bitpayAddress | [string] bitpay地址格式(比特派专用地址)
 
-[试一试](http://localhost:3002/playground?code=bitapp.bch.address.tobitpayaddress)
+[试一试](http://developer.bitapp.net/playground?code=bitapp.bch.address.tobitpayaddress)
 
 ### bitapp.bch.address.isLegacyAddress
 - 类型：方法
@@ -236,6 +240,7 @@ bitapp.bch.address.toLegacyAddress('bchtest:qpwtjeu34nnu89yhk8hc853t0zt5fqwvc5x9
   - address | [string] 地址
 - 返回:
     - isLegacyAddress | [bool]
+- 示例
 
 ```js
 
@@ -245,7 +250,7 @@ bitapp.bch.address.isLegacyAddress('bchtest:qpwtjeu34nnu89yhk8hc853t0zt5fqwvc5x9
 false
 ```
 
-[试一试](http://localhost:3002/playground?code=bitapp.bch.address.islegacyaddress)
+[试一试](http://developer.bitapp.net/playground?code=bitapp.bch.address.islegacyaddress)
 
 ### bitapp.bch.address.isCashAddress
 - 类型：方法
@@ -254,7 +259,7 @@ false
 - 返回:
     - isCashAddress | [bool]
 
-[试一试](http://localhost:3002/playground?code=bitapp.bch.address.iscashaddress)
+[试一试](http://developer.bitapp.net/playground?code=bitapp.bch.address.iscashaddress)
 
 ### bitapp.bch.address.isBitpayAddress
 - 类型：方法
@@ -263,25 +268,40 @@ false
 - 返回:
     - isBitpayAddress | [bool]
 
-[试一试](http://localhost:3002/playground?code=bitapp.bch.address.isbitpayaddress)
+[试一试](http://developer.bitapp.net/playground?code=bitapp.bch.address.isbitpayaddress)
 
 ### bitapp.bch.address.isMainnetAddress
+
+判断是否是主网地址
+
 - 类型：方法
 - 参数: 
   - address | [string] 地址
 - 返回:
     - isMainnetAddress | [bool]
+- 示例
 
-[试一试](http://localhost:3002/playground?code=bitapp.bch.address.ismainnetaddress)
+```js
+
+bitapp.bch.address.isMainnetAddress('bchtest:qpwtjeu34nnu89yhk8hc853t0zt5fqwvc5x9spupsm')
+>
+//输出
+false
+```
+
+[试一试](http://developer.bitapp.net/playground?code=bitapp.bch.address.ismainnetaddress)
 
 ### bitapp.bch.address.isTestnetAddress
+
+判断是否是测试网地址
+
 - 类型：方法
 - 参数: 
   - address | [string] 地址
 - 返回:
     - isTestnetAddress | [bool]
 
-[试一试](http://localhost:3002/playground?code=bitapp.bch.address.istestnetaddress)
+[试一试](http://developer.bitapp.net/playground?code=bitapp.bch.address.istestnetaddress)
 
 ### bitapp.bch.address.isP2PKHAddress
 
@@ -292,8 +312,17 @@ false
   - address | [string] 地址
 - 返回:
     - isP2PKHAddress | [bool]
+- 示例
 
-[试一试](http://localhost:3002/playground?code=bitapp.bch.address.isp2pkhaddress)
+```js
+
+bitapp.bch.address.isP2PKHAddress('bchtest:qpwtjeu34nnu89yhk8hc853t0zt5fqwvc5x9spupsm')
+>
+//输出
+true
+```
+
+[试一试](http://developer.bitapp.net/playground?code=bitapp.bch.address.isp2pkhaddress)
 
 ### bitapp.bch.address.isP2SHAddress
 
@@ -305,7 +334,7 @@ false
 - 返回:
     - isP2SHAddress | [bool]
 
-[试一试](http://localhost:3002/playground?code=bitapp.bch.address.isp2shaddress)
+[试一试](http://developer.bitapp.net/playground?code=bitapp.bch.address.isp2shaddress)
 
 ## bitapp.bch.currency
 
@@ -319,7 +348,7 @@ false
     - currency | [string] 用户当前选择的法币类型('cny', 'usd')
   - fail | 失败原因
 
-[试一试](http://localhost:3002/playground?code=bitapp.bch.currency.getcurrency)
+[试一试](http://developer.bitapp.net/playground?code=bitapp.bch.currency.getcurrency)
 
 ### bitapp.bch.currency.getRate
 - 类型：方法
@@ -329,7 +358,7 @@ false
     - rate | [number] 当前汇率
   - fail | 失败原因
 
-[试一试](http://localhost:3002/playground?code=bitapp.bch.currency.getrate)
+[试一试](http://developer.bitapp.net/playground?code=bitapp.bch.currency.getrate)
 
 ## bitapp.bch.util
 
@@ -343,7 +372,7 @@ false
 - 返回:
     - satoshi | [number] 返回以satoshi为单位的数值
 
-[试一试](http://localhost:3002/playground?code=bitapp.bch.util.bchtosatoshi)
+[试一试](http://developer.bitapp.net/playground?code=bitapp.bch.util.bchtosatoshi)
 
 ### bitapp.bch.util.satoshiToBch
 
@@ -353,4 +382,4 @@ false
 - 返回:
     - bch | [number] 返回以bch为单位的数值
 
-[试一试](http://localhost:3002/playground?code=bitapp.bch.util.satoshitobch)
+[试一试](http://developer.bitapp.net/playground?code=bitapp.bch.util.satoshitobch)

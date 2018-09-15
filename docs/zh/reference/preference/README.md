@@ -37,7 +37,7 @@ bitapp.preference.get().then(console.log)
 }
 ```
 
-[试一试](http://localhost:3002/playground?code=bitapp.preference.get)
+[试一试](http://developer.bitapp.net/playground?code=bitapp.preference.get)
 
 ## bitapp.preference.getCurrency
 
@@ -50,7 +50,7 @@ bitapp.preference.get().then(console.log)
     - currency | [string] 货币类型 ('cny', 'usd').
   - fail | 失败原因
 
-[试一试](http://localhost:3002/playground?code=bitapp.preference.getcurrency)
+[试一试](http://developer.bitapp.net/playground?code=bitapp.preference.getcurrency)
 
 ## bitapp.preference.getLocale
 
@@ -63,7 +63,7 @@ bitapp.preference.get().then(console.log)
     - locale | [string] 语言 ('cn').
   - fail | 失败原因
 
-[试一试](http://localhost:3002/playground?code=bitapp.preference.getlocale)
+[试一试](http://developer.bitapp.net/playground?code=bitapp.preference.getlocale)
 
 ## bitapp.preference.getTokens
 
@@ -78,7 +78,7 @@ bitapp.preference.get().then(console.log)
     - tokens | [array] Token列表.
   - fail | 失败原因
 
-[试一试](http://localhost:3002/playground?code=bitapp.preference.gettokens)
+[试一试](http://developer.bitapp.net/playground?code=bitapp.preference.gettokens)
 
 ## bitapp.preference.getDefaultAddress
 
@@ -86,10 +86,10 @@ bitapp.preference.get().then(console.log)
 
 - 类型：方法
 - 参数: 
-  - coin | [string] 币种 [完整代币列表](/zh/append/#完整代币列表)
+  - coin | [string] 币种，选填，如果不填写，返回所有代币的地址（ERC20地址同ETH地址） [完整代币列表](/zh/append/#完整代币列表)
 - 返回: Promise
   - success
     - address | [string] 当前地址。
   - fail | 失败原因
 
-[试一试](http://localhost:3002/playground?code=bitapp.preference.getdefaultaddress)
+[试一试](http://developer.bitapp.net/playground?code=bitapp.preference.getdefaultaddress)

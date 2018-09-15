@@ -12,7 +12,7 @@ ETH币种的接口API
     - gasPrice | [number] 获取最新gas price, 单位是[wei](http://eth-converter.com/)。[了解更多](https://ethgasstation.info/)
   - fail | 失败原因
 
-[试一试](http://localhost:3002/playground?code=bitapp.eth.gasprice)
+[试一试](http://developer.bitapp.net/playground?code=bitapp.eth.gasprice)
 
 ### bitapp.eth.getBlockNumber
 - 类型：方法
@@ -22,7 +22,7 @@ ETH币种的接口API
     - blockNumber | [number] 当前最新的区块数
   - fail | 失败原因
 
-[试一试](http://localhost:3002/playground?code=bitapp.eth.getblocknumber)
+[试一试](http://developer.bitapp.net/playground?code=bitapp.eth.getblocknumber)
 
 ### bitapp.eth.getRawInstance
 - bitapp对ETH的web3方法进行了二次封装，为了给用户带来更好的调用体验，以及更统一的接口输出，但我们对于高级用户，也可以直接暴露web3的原生对象，开发者拿到原生对象之后就可以使用原生的web3方法，bitapp使用的是web3的1.0.0-beta.34版本
@@ -33,17 +33,17 @@ ETH币种的接口API
     - 原始web3对象
   - fail | 失败原因
 
-[试一试](http://localhost:3002/playground?code=bitapp.eth.getrawinstance)
+[试一试](http://developer.bitapp.net/playground?code=bitapp.eth.getrawinstance)
 
 ### bitapp.eth.getBalance
 - 类型：方法
-- 参数: address | [string] 选填，不填则为默认账户
+- 参数: address | [string] 查询余额的地址，网络环境为当前用户插件的网络环境
 - 返回: Promise
   - success
     - balance | [number] 查询地址余额，单位是[wei](http://eth-converter.com/),1eth = 1e18 wei
   - fail | 失败原因
 
-[试一试](http://localhost:3002/playground?code=bitapp.eth.getbalance)
+[试一试](http://developer.bitapp.net/playground?code=bitapp.eth.getbalance)
 
 ## bitapp.eth.account
 
@@ -58,7 +58,7 @@ ETH币种的接口API
     - isUnlocked | [bool] 钱包是否处于解锁状态，如果钱包处于锁定状态，则获取不到账户数据
   - WalletLockError 当前钱包处于锁定状态
 
-[试一试](http://localhost:3002/playground?code=bitapp.eth.accounts.get)
+[试一试](http://developer.bitapp.net/playground?code=bitapp.eth.accounts.get)
 
 
 <!-- ## bitapp.eth.accounts.create
@@ -85,10 +85,10 @@ ETH币种的接口API
     - networkid | [string] 网络环境数字编号[完整网络类型](/zh/append/#完整网络类型)
   - fail | 失败原因
 
-[试一试](http://localhost:3002/playground?code=bitapp.eth.net.getid)
+[试一试](http://developer.bitapp.net/playground?code=bitapp.eth.net.getid)
 
 
-### bitapp.eth.net.getProvider
+### bitapp.eth.net.getNetworkType
 - 类型：方法
 - 参数: 无
 - 返回: Promise
@@ -96,7 +96,7 @@ ETH币种的接口API
     - network | [string] 网络环境[完整网络类型](/zh/append/#完整网络类型)
   - fail | 失败原因
 
-[试一试](http://localhost:3002/playground?code=bitapp.eth.net.getprovider)
+[试一试](http://developer.bitapp.net/playground?code=bitapp.eth.net.getnetworktype)
 
 ## bitapp.eth.transaction
 
@@ -135,7 +135,7 @@ bitapp.eth.transaction.getTransaction('0x7ffbd75c4c0c4700f7b2d2bf3551a408aa271e3
 
 - 了解更多 [https://web3js.readthedocs.io/en/1.0/web3-eth.html#gettransaction](https://web3js.readthedocs.io/en/1.0/web3-eth.html#gettransaction)
 
-[试一试](http://localhost:3002/playground?code=bitapp.eth.transaction.gettransaction)
+[试一试](http://developer.bitapp.net/playground?code=bitapp.eth.transaction.gettransaction)
 
 ### bitapp.eth.transaction.getTransactionReceipt
 - 类型：方法
@@ -166,7 +166,7 @@ bitapp.eth.transaction.getTransactionReceipt('0x7ffbd75c4c0c4700f7b2d2bf3551a408
 ```
 - 了解更多 [https://web3js.readthedocs.io/en/1.0/web3-eth.html#gettransactionreceipt](https://web3js.readthedocs.io/en/1.0/web3-eth.html#gettransactionreceipt)
 
-[试一试](http://localhost:3002/playground?code=bitapp.eth.transaction.gettransactionreceipt)
+[试一试](http://developer.bitapp.net/playground?code=bitapp.eth.transaction.gettransactionreceipt)
 
 ### bitapp.eth.transaction.getTransactionCount
 - 类型：方法
@@ -178,7 +178,7 @@ bitapp.eth.transaction.getTransactionReceipt('0x7ffbd75c4c0c4700f7b2d2bf3551a408
 
 - 了解更多 [https://web3js.readthedocs.io/en/1.0/web3-eth.html#gettransactioncount](https://web3js.readthedocs.io/en/1.0/web3-eth.html#gettransactioncount)
 
-[试一试](http://localhost:3002/playground?code=bitapp.eth.transaction.gettransactioncount)
+[试一试](http://developer.bitapp.net/playground?code=bitapp.eth.transaction.gettransactioncount)
 
 ## bitapp.eth.currency
 
@@ -192,7 +192,7 @@ bitapp.eth.transaction.getTransactionReceipt('0x7ffbd75c4c0c4700f7b2d2bf3551a408
     - currency | [string] 用户当前选择的法币类型('cny', 'usd')
   - fail | 失败原因
 
-[试一试](http://localhost:3002/playground?code=bitapp.eth.currency.getcurrency)
+[试一试](http://developer.bitapp.net/playground?code=bitapp.eth.currency.getcurrency)
 
 ### bitapp.eth.currency.getRate
 - 类型：方法
@@ -202,4 +202,4 @@ bitapp.eth.transaction.getTransactionReceipt('0x7ffbd75c4c0c4700f7b2d2bf3551a408
     - rate | [number] 当前汇率
   - fail | 失败原因
 
-[试一试](http://localhost:3002/playground?code=bitapp.eth.currency.getrate)
+[试一试](http://developer.bitapp.net/playground?code=bitapp.eth.currency.getrate)

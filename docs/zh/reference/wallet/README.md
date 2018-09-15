@@ -27,7 +27,7 @@
     - isUnlocked | [bool] 如果钱包处于解锁状态，则值为true，如果钱包为锁定状态，则值为false
   - fail
 
-[试一试](http://localhost:3002/playground?code=bitapp.wallet.isunlocked)
+[试一试](http://developer.bitapp.net/playground?code=bitapp.wallet.isunlocked)
 
 ## bitapp.wallet.requestPay
 
@@ -39,7 +39,7 @@
   - symbol | [string] 币种 ('eth', 'bch', '其他代币')。[完整代币列表](/zh/append/#完整代币列表)
   - amount | [string] 转账数量 (eth: 单位[wei](http://eth-converter.com/)。[了解更多](https://ethgasstation.info/)) 或者交易手续费 (bch: 单位[satoshi](https://en.bitcoin.it/wiki/Satoshi_(unit)), 1bch = 1e8 satoshi)
   - to | [string] 转账地址
-  - gasPriceOrFee | [string] gasPrice (eth: 单位[wei](http://eth-converter.com/)。[了解更多](https://ethgasstation.info/)) 或者交易手续费 fee(bch: 单位[satoshi](https://en.bitcoin.it/wiki/Satoshi_(unit)), 1bch = 1e8 satoshi) 
+  - gasPriceOrFee | [string] gasPrice (eth: 单位[wei](http://eth-converter.com/)。[ETH完整单位换算](/zh/append/#单位换算)) 或者交易手续费 fee(bch: 单位[satoshi](https://en.bitcoin.it/wiki/Satoshi_(unit)), 1bch = 1e8 satoshi) 
   - data | [string] 自定义数据
   - desc | [string] 申请描述
 - 返回: Promise
@@ -70,7 +70,7 @@ bitapp.bch.net.getId().then(network => {
 ```
 
 
-[试一试](http://localhost:3002/playground?code=bitapp.wallet.requestpay)
+[试一试](http://developer.bitapp.net/playground?code=bitapp.wallet.requestpay)
 
 ## bitapp.wallet.requestSign
 
@@ -98,4 +98,4 @@ bitapp.wallet.requestSign('Demo','bch','注册账户').then(console.log)
 }
 ```
 
-[试一试](http://localhost:3002/playground?code=bitapp.wallet.requestsign)
+[试一试](http://developer.bitapp.net/playground?code=bitapp.wallet.requestsign)
