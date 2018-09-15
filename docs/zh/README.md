@@ -18,9 +18,32 @@ footer: Copyright © BITAPP Team
 ```js
 
 var bitapp = window.bitapp;
-bitapp.eth.accounts.getAccounts().then( accounts => { 
- // 用户账户
- console.log(accounts)
-});
+
+if (bitapp) {
+  bitapp.preference.getDefaultAddress().then(addresses => {
+    if(addresses.eth && addresses.bch) {
+      //查询用户默认ETH账户余额
+      bitapp.eth.getBalance(addresses.eth).then(balance=>{
+        console.log('My BitApp wallet eth address: ' + addresses.eth)
+        console.log('balance: ' + balance)
+      }).catch(e=>{
+        console.error(e)
+      })
+
+      //查询用户默认BCH账户余额
+      bitapp.bch.getBalance(addresses.bch).then(balance=>{
+        console.log('My BitApp wallet bch address: ' + addresses.bch)
+        console.log('balance: ' + balance)
+      }).catch(e=>{
+        console.error(e)
+      })
+    } else {
+      console.error('BitApp account not created')
+    }
+
+    //发起一笔ETH交易请求
+    bitapp.wallet.requestPay('BitApp', 'eth', bitapp.eth.util.toWei('1', 'ether'), bitapp.eth.util.toWei('3', 'gwei'), '0x1e5776c667e1EB857726D96e63e524f9f3479Df2', '', 'BitApp转账示例')
+  })
+}
 
 ```
