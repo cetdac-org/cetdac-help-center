@@ -180,6 +180,11 @@ bitapp.eth.transaction.getTransactionReceipt('0x7ffbd75c4c0c4700f7b2d2bf3551a408
 
 [试一试](http://developer.bitapp.net/playground?code=bitapp.eth.transaction.gettransactioncount)
 
+
+## bitapp.eth.contract
+
+智能合约模块
+
 ## bitapp.eth.currency
 
 汇率模块

@@ -21,3 +21,27 @@
 
 ## 无法打开Chrome Store安装BitApp?
 推荐科学上网小工具：[蓝灯](https://getlantern.org/zh_CN/)
+
+## 如果检测用户是否安装了BitApp
+
+1. 如果用户安装了BitApp，开发者可以直接访问 window.bitapp对象
+
+```js
+
+if(!window.bitapp){ 
+  console.error('bitapp chrome plugin is not installed')
+};
+
+```
+
+2. 如果用户创建了BitApp账户，则可以通过如下方法来获取用户的地址
+
+```js
+
+bitapp.preference.getDefaultAddress().then(addresses => {
+  if(!addresses.eth || !addresses.bch) {
+    console.log('BitApp account not created')
+  }
+})
+
+```
