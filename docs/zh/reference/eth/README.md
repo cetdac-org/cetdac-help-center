@@ -202,21 +202,201 @@ bitapp.eth.transaction.getTransactionReceipt('0x7ffbd75c4c0c4700f7b2d2bf3551a408
   - success
     - contract | [Contract] 返回Contract 对象
   - fail | 失败原因
+- 示例
 
-### contractInstance.call
+```js
 
-调用智能合约对象的方法
+// ropsten 一个计算斐波那契数列的智能合约
+let address = '0x7a6a8c0555d13ba58804c93a5b74718cdec93a9a'
+let abi = [
+  {
+    "inputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "number",
+        "type": "uint256"
+      }
+    ],
+    "name": "factorial",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "pure",
+    "type": "function"
+  }
+]
+
+bitapp.preference.getDefaultAddress('eth').then(from=>{
+  let contractInstance = bitapp.eth.contract.create(abi, address, {from: from, gasPrice: '2000000000'})
+  contractInstance.call('factorial', [10]).then(result=>{
+    console.log(result)
+  }).catch(e=>{
+    console.error(e.message)
+  })
+})
+
+```
+
+[试一试](http://developer.bitapp.net/playground?code=bitapp.eth.contract.create)
+
+### contractInstance.send
+
+调用智能合约对象的方法，同时发起交易
 
 - 类型：方法
 - 参数: 
   - method | [string] 需要调用的方法名
   - args | [array] 参数数组
+  - options | [object]
+    - from | [string] 调用方
+    - gasLimit | [number] 最大gas 单位是[wei](http://eth-converter.com/)
+    - gasPrice | [string] gas price, 单位是[wei](http://eth-converter.com/)。[了解更多](https://ethgasstation.info/)
+    - value | [string] 交易的金额
   - appName | [string] 应用名称
   - desc | [string] 对本次调用的描述
 - 返回: Promise
   - success
     - txhash | [string] 本次调用txhash
   - fail | 失败原因
+
+- 示例
+
+```js
+
+// ropsten 一个计算斐波那契数列的智能合约
+let address = '0x7a6a8c0555d13ba58804c93a5b74718cdec93a9a'
+let abi = [
+  {
+    "inputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "number",
+        "type": "uint256"
+      }
+    ],
+    "name": "factorial",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "pure",
+    "type": "function"
+  }
+]
+
+bitapp.preference.getDefaultAddress('eth').then(from=>{
+  let contractInstance = bitapp.eth.contract.create(abi, address, {from: from, gasPrice: '2000000000'})
+  contractInstance.send('factorial', [10]).then(result=>{
+    console.log(result)
+  }).catch(e=>{
+    console.error(e.message)
+  })
+})
+
+//output
+>
+{
+  "blockHash":"0x9e3b20f9c788708cd57b8625dec5a396feede90a847850a401ecfc3d45fef41e",
+  "blockNumber":4057890,
+  "contractAddress":null,
+  "cumulativeGasUsed":4153264,
+  "from":"0xe5903117222cd6e87deaa0cb60b3e394896645ae",
+  "gasUsed":22520,"logsBloom":"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "status":true,
+  "to":"0x7a6a8c0555d13ba58804c93a5b74718cdec93a9a",
+  "transactionHash":"0x11e9829c75a2b33571318303b742b7fe299912ce0c1b168dd77be566c33c7c66",
+  "transactionIndex":33,
+  "events":{}
+}
+```
+
+[试一试](http://developer.bitapp.net/playground?code=contractinstance.send)
+
+### contractInstance.call
+
+在EVM中调用智能合约对象的方法，但不发起交易
+
+- 类型：方法
+- 参数: 
+  - method | [string] 需要调用的方法名
+  - args | [array] 参数数组
+  - options | [object]
+    - from | [string] 调用方
+    - gasLimit | [number] 最大gas 单位是[wei](http://eth-converter.com/)
+    - gasPrice | [string] gas price, 单位是[wei](http://eth-converter.com/)。[了解更多](https://ethgasstation.info/)
+  - appName | [string] 应用名称
+  - desc | [string] 对本次调用的描述
+- 返回: Promise
+  - success
+    - txhash | [string] 本次调用txhash
+  - fail | 失败原因
+- 示例
+
+```js
+
+// ropsten 一个计算斐波那契数列的智能合约
+let address = '0x7a6a8c0555d13ba58804c93a5b74718cdec93a9a'
+let abi = [
+  {
+    "inputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "number",
+        "type": "uint256"
+      }
+    ],
+    "name": "factorial",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "pure",
+    "type": "function"
+  }
+]
+
+bitapp.preference.getDefaultAddress('eth').then(from=>{
+  let contractInstance = bitapp.eth.contract.create(abi, address, {from: from, gasPrice: '2000000000'})
+  contractInstance.call('factorial', [10]).then(result=>{
+    console.log(result)
+  }).catch(e=>{
+    console.error(e.message)
+  })
+})
+
+// 输出
+> 3628800
+```
+
+[试一试](http://developer.bitapp.net/playground?code=contractinstance.call)
 
 
 ## bitapp.eth.currency
