@@ -98,6 +98,12 @@ module.exports = {
             ]
           },
           {
+            title: '无法安装',
+            children: [
+              '/zh/qa/zip/'
+            ]
+          },
+          {
             title: '附录',
             children: [
               '/zh/append/'
