@@ -40,9 +40,6 @@ if (bitapp) {
     } else {
       console.error('BitApp account not created')
     }
-
-    //发起一笔ETH交易请求
-    bitapp.wallet.requestPay('BitApp', 'eth', bitapp.eth.util.toWei('1', 'ether'), bitapp.eth.util.toWei('3', 'gwei'), '0x1e5776c667e1EB857726D96e63e524f9f3479Df2', '', 'BitApp转账示例')
   })
 }
 
