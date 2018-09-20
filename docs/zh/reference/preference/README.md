@@ -87,6 +87,7 @@ bitapp.preference.get().then(console.log)
 - 类型：方法
 - 参数: 
   - coin | [string] 币种，选填，如果不填写，返回所有代币的地址（ERC20地址同ETH地址） [完整代币列表](/zh/append/#完整代币列表)
+  - networkType | [string] 网络类型，选填，bch需要[完整网络类型](/zh/append/#完整网络类型)，eth不需要
 - 返回: Promise
   - success
     - address | [string] 当前地址。
