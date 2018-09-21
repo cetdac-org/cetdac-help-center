@@ -5,7 +5,8 @@ module.exports = {
     '/': {
       lang: 'en-US', // 将会被设置为 <html> 的 lang 属性
       title: 'BITAPP Developer Document',
-      description: 'Developer Document',
+      description: 'BitApp, Create your life with blockchain',
+      keywords: 'eth,以太坊,bch,bcc,bitcoin cash,比特现金,sdk,bitapp,开发者,水龙头,测试币,测试币领取,免费,free,ropsten,testnet,faucet,多币种,支付按钮,跨链开发,区块链开发,智能合约,比特币,btc',
       head: [
         ['link', { rel: 'icon', href: '/favicon.ico' }]
       ]
@@ -13,7 +14,8 @@ module.exports = {
     '/zh/': {
       lang: 'zh',
       title: '开发者文档 | BITAPP',
-      description: ' ',
+      description: 'BitApp, 区块链开发第一站',
+      keywords: 'eth,以太坊,bch,bcc,bitcoin cash,比特现金,sdk,bitapp,开发者,水龙头,测试币,测试币领取,免费,free,ropsten,testnet,faucet,多币种,支付按钮,跨链开发,区块链开发,智能合约,比特币,btc',
       head: [
         ['link', { rel: 'icon', href: '/favicon.ico' }]
       ]
