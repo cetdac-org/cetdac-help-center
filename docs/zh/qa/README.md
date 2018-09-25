@@ -17,7 +17,7 @@
 答：完全可以。基于BitApp SDK，你无需关注区块链底层技术，只需简单的开发，即可支持多个币种的数字货币支付，享受行业红利。
 
 ## 如何领取ETH测试币？如何领取BCH测试币？
-答：安装BitApp Chrome插件后，打开[BCH测试币领取网站](https://developer.bitapp.net/faucet/bch)或者[ETH测试币领取网站](https://developer.bitapp.net/faucet/eth)，即可领取ETH与BCH测试币。
+答：安装BitApp Chrome插件后，打开开发者站，即可[领取ETH测试币](https://developer.bitapp.net/faucet/eth)或者[领取BCH测试币](https://developer.bitapp.net/faucet/bch)。
 
 ## 如何检测用户是否安装了BitApp
 
