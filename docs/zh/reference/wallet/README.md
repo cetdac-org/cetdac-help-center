@@ -39,7 +39,7 @@
   - symbol | [string] 币种 ('eth', 'bch', '其他代币')。[完整代币列表](/zh/append/#完整代币列表)
   - amount | [string] 转账数量 (eth: 单位[wei](http://eth-converter.com/)。[了解更多](https://ethgasstation.info/)) 或者交易手续费 (bch: 单位[satoshi](https://en.bitcoin.it/wiki/Satoshi_(unit)), 1bch = 1e8 satoshi)
   - to | [string] 转账地址
-  - gasPriceOrFee | [string] gasPrice (eth: 单位[wei](http://eth-converter.com/)。[ETH完整单位换算](/zh/append/#单位换算)) 或者交易手续费 fee(bch: 单位[satoshi](https://en.bitcoin.it/wiki/Satoshi_(unit)), 1bch = 1e8 satoshi) 
+  - gasPriceOrFee | [string | null | undefined] 选填(填null或者undefined为不填) gasPrice (eth: 单位[wei](http://eth-converter.com/)。[ETH完整单位换算](/zh/append/#单位换算)) 或者交易手续费 fee(bch: 单位[satoshi](https://en.bitcoin.it/wiki/Satoshi_(unit)), 1bch = 1e8 satoshi) 
   - data | [string] 自定义数据
   - desc | [string] 申请描述
 - 返回: Promise
