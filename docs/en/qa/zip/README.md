@@ -1,4 +1,4 @@
-## Mannualy Install
+## Package Install
 
 ### Steps
 
