@@ -1,8 +1,8 @@
 ---
 home: true
 heroImage: /approles.png
-actionText: English Reference Comming Soon.
-actionLink: /
+actionText: Guidance →
+actionLink: /en/getstarted/
 features:
 - title: SDK wih multi-language support.
   details: In addition to javascript sdk, we will also launch android, ios version sdk, for the server, we will provide nodejs and python version, please keep in touch.
@@ -13,7 +13,7 @@ features:
 footer: Copyright © BITAPP Team
 ---
 
-# Get Stated
+# Get Started
 
 ```js
 

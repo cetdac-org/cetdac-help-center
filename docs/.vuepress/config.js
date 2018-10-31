@@ -30,26 +30,58 @@ module.exports = {
     ],
     locales:{
       '/':{
+        nav: [
+          { text: 'BitApp Wallet', link: 'http://www.bitapp.net/' },
+          { text: 'Developer', link: 'http://developer.bitapp.net/' },
+          { text: 'Github', link: 'https://github.com/bitapp' }
+        ],
         selectText: 'Languages',
         label: 'English',
         sidebar: [
           {
-            title: 'Installation',
+            title: 'Guidance',
             collapsable: false,
             children: [
-              '/'
+              '/en/getstarted/'
             ]
           },
           {
-            title: 'Guide',
+            title: 'API',
             collapsable: false,
             children: [
-              '/'
+              '/en/reference/bitapp/',
+              '/en/reference/wallet/',
+              '/en/reference/preference/',
+              //'/zh/reference/userContext/',
+              '/en/reference/bip32/',
+              '/en/reference/bip39/',
+              '/en/reference/eth/',
+              '/en/reference/bch/'
             ]
           },
           {
-            title: 'API Reference',
-            children: [ /* ... */ ]
+            title: 'Demo',
+            children: [
+              '/en/demos/'
+            ]
+          },
+          {
+            title: 'FAQ',
+            children: [
+              '/en/qa/'
+            ]
+          },
+          // {
+          //   title: 'Unable to install',
+          //   children: [
+          //     '/en/qa/zip/'
+          //   ]
+          // },
+          {
+            title: 'Appendix',
+            children: [
+              '/en/append/'
+            ]
           }
         ]
       },

@@ -1,6 +1,6 @@
 # bitapp.wallet
 
-钱包模块，提供跨语言的通用钱包管理API
+钱包模块
 
 <!-- ## bitapp.wallet.requestUnlock
 
