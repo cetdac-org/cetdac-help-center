@@ -1,4 +1,4 @@
-## Package Install
+## Package Installation
 
 ### Steps
 

@@ -72,7 +72,7 @@ module.exports = {
             ]
           },
           {
-            title: 'Package Install',
+            title: 'Package Installation',
             children: [
               '/en/qa/zip/'
             ]

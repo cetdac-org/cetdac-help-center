@@ -22,7 +22,7 @@ Get transaction fee
 - Parameter: type | [string] (dereference 'default', 'fast', 'slow')
 - Return: Promise
   - **success**
-	  - **fee** | [number] Get transaction fee，the unit is[satoshi][3], 1bch = 1e8 satoshi
+	  - **fee** | [number] Get transaction fee，the unit is [satoshi][3], 1bch = 1e8 satoshi
   - **fail** | Cause of failure
 
 [Try][4]
@@ -73,7 +73,7 @@ Network module
 - Parameter: none
 - Return: Promise
   - **success**
-	  - **networkid** | [string] Network environment digital number(1 = mainnet, 2 = testnet)[Complete network type][8]
+	  - **networkid** | [string] Network environment digital number(1 = mainnet, 2 = testnet) [Complete network type][8]
   - **fail** | Cause of failure
 
 [Try][9]
@@ -83,7 +83,7 @@ Network module
 - Parameter: none
 - Return: Promise
   - **success**
-	  - **network** | [string] Network environment(mainnet = 1, testnet = 2)[Complete network type][10]
+	  - **network** | [string] Network environment(mainnet = 1, testnet = 2) [Complete network type][10]
   - **fail** | Cause of failure
 
 [Try][11]
@@ -183,7 +183,9 @@ Address module
 - Return:
 	- **format** | [string] Address format（'legacy', 'cashaddr', 'bitpay'）[Complete address format][14]
 	- **network** | [string] Network type（'livenet', 'testnet'）[Complete network type][15]
-	- **type** | [string] Address type（'pubkeyhash', 'scripthash'）[Complete address type][16] [Learn more][17]
+	- **type** | [string] Address type（'pubkeyhash', 'scripthash'）[Complete address type][16] 
+  
+  [Learn more][17]
 
 ```js
 
@@ -391,15 +393,15 @@ Tool module
 [5]:	http://developer.bitapp.net/playground?code=bitapp.bch.getblocknumber
 [6]:	http://developer.bitapp.net/playground?code=bitapp.bch.verifymessage
 [7]:	http://developer.bitapp.net/playground?code=bitapp.bch.account.get
-[8]:	/zh/append/#%E5%AE%8C%E6%95%B4%E7%BD%91%E7%BB%9C%E7%B1%BB%E5%9E%8B
+[8]:	/en/append/#complete-network-list
 [9]:	http://developer.bitapp.net/playground?code=bitapp.bch.net.getid
-[10]:	/zh/append/#%E5%AE%8C%E6%95%B4%E7%BD%91%E7%BB%9C%E7%B1%BB%E5%9E%8B
+[10]:	/en/append/#complete-network-list
 [11]:	http://developer.bitapp.net/playground?code=bitapp.bch.net.getnetworktype
 [12]:	http://developer.bitapp.net/playground?code=bitapp.bch.transaction.getunspent
 [13]:	http://developer.bitapp.net/playground?code=bitapp.bch.transaction.gettransaction
-[14]:	/zh/append/#%E5%9C%B0%E5%9D%80%E6%A0%BC%E5%BC%8F
-[15]:	/zh/append/#%E5%AE%8C%E6%95%B4%E7%BD%91%E7%BB%9C%E7%B1%BB%E5%9E%8B
-[16]:	/zh/append/#%E5%9C%B0%E5%9D%80%E7%B1%BB%E5%9E%8B
+[14]:	/en/append/#address-format 
+[15]:	/en/append/#complete-network-list
+[16]:	/en/append/#address-format 
 [17]:	https://bitcoin.stackexchange.com/questions/64733/what-is-p2pk-p2pkh-p2sh-p2wpkh-eli5
 [18]:	http://developer.bitapp.net/playground?code=bitapp.bch.address.detectaddress
 [19]:	http://developer.bitapp.net/playground?code=bitapp.bch.address.tolegacyaddress

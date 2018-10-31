@@ -9,13 +9,13 @@
 ## Complete network list
 
 ### BCH
-  - mainnet 编号 1
-  - testnet 编号 2
+  - mainnet 1
+  - testnet 2
 ### ETH
-  - main 编号 1
-  - ropsten 编号 3
-  - rinkeyby 编号 4
-  - kovan 编号 42
+  - main 1
+  - ropsten 3
+  - rinkeyby 4
+  - kovan 42
 
 ## Unit conversion
 
@@ -37,17 +37,17 @@
 
 - 100000000 satoshi:  1 bch
 
-## 地址类型
+## Address type
 
 ### BTC/BCH
 
 - pubkeyhash
 - scripthash
 
-## 地址格式 
+## Address format 
 
 ### BCH 
 
-- legacy 传统bch地址
-- cashaddr bch新地址
-- bitpay 比特派专用地址
+- **legacy** legacy bch address
+- **cashaddr** bch cash address
+- **bitpay** bitpay address

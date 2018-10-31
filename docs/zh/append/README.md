@@ -50,4 +50,4 @@
 
 - legacy 传统bch地址
 - cashaddr bch新地址
-- bitpay 比特派专用地址
+- bitpay bitpay专用地址
