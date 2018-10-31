@@ -1,25 +1,25 @@
-## 无法打开Chrome Store安装BitApp?
+## Mannualy Install
 
-如果你无法科学上网，可以通过下载安装的方式进行安装，步骤如下：
+### Steps
 
-1.首先确保你使用的是**Chrome浏览器**;
+1.first make sure you are using **Chrome**;
 
-2.[下载压缩安装包](http://files.bitapp.net.cn/chrome-bitapp.zip);
+2.[download BitApp](http://files.bitapp.net.cn/chrome-bitapp.zip);
 
-3.将安装包解压，并拖到一个你能找到的文件夹中，并确保其不会被删除;
+3.unzip it to somewhere you can find;
 
-4.在Chrome浏览器中，找到**设置-->更多工具-->扩展程序**;
+4.in Chrome，find **Settings-->More Tools-->Extension**;
 
-![图片描述](./setting.png)
+![setting](./setting.jpg)
 
-5.打开页面右上角的**开发者模式**;
+5.Toggle **Developer mode** on;
 
-![图片描述](./develop_mode.png)
+![setting](./develop_mode.jpg)
 
-6.点击**加载已解压的扩展程序**，找到第3步中的文件夹，点击确定;
+6.click **Load unpacked**，find that folder in step 3, then click OK;
 
-![图片描述](./load.png)
+![setting](./load.jpg)
 
-7.完成后就可以看到小火箭图标了，安装成功。
+7.Install Successfully.
 
-![图片描述](./install_success.png)
+![setting](./install_success.jpg)

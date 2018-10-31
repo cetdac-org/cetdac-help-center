@@ -71,12 +71,12 @@ module.exports = {
               '/en/qa/'
             ]
           },
-          // {
-          //   title: 'Unable to install',
-          //   children: [
-          //     '/en/qa/zip/'
-          //   ]
-          // },
+          {
+            title: 'Mannualy Install',
+            children: [
+              '/en/qa/zip/'
+            ]
+          },
           {
             title: 'Appendix',
             children: [

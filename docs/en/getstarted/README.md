@@ -4,12 +4,12 @@
 
 ### Chrome extension
 
-BitApp Chrome extension is now online，If your web page needs to use the API provided by BitApp, you need to install [Chrome extension] first.(http://developer.bitapp.net)。
+BitApp Chrome extension is now online，If your web page needs to use the API provided by BitApp, you need to install [Chrome extension](http://developer.bitapp.net) first.
 After successful installation, a small icon will appear in the upper right corner of the Chrome browser.
 
 ![Install successfully](./install-success.png)
 
-If you encounter any problems during the installation, you can go directly to [github](https://github.com/bitapp) to issue problem or contact us. [alan@bitapp.pro](mailto:alan@bitapp.pro)
+If you encounter any problems during the installation, you can go directly to [github](https://github.com/bitapp) to issue problem or contact us. [support@bitapp.pro](mailto:support@bitapp.pro)
 
 When the installation is finished, open the web page you developed in the new tab. The bitapp object will be automatically mounted under the window object.
 

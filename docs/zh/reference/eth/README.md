@@ -25,7 +25,7 @@ ETH币种的接口API
 [试一试](http://developer.bitapp.net/playground?code=bitapp.eth.getblocknumber)
 
 ### bitapp.eth.getRawInstance
-- bitapp对ETH的web3方法进行了二次封装，为了给用户带来更好的调用体验，以及更统一的接口输出，但我们对于高级用户，也可以直接暴露web3的原生对象，开发者拿到原生对象之后就可以使用原生的web3方法，bitapp使用的是web3的1.0.0-beta.34版本
+- bitapp对ETH的web3方法进行了二次封装，为了给用户带来更好的调用体验，以及更统一的接口输出，但我们对于高级用户，也可以直接暴露web3的原生对象，开发者拿到原生对象之后就可以使用原生的web3方法，bitapp使用的是web3的0.20.7版本
 - 类型：方法
 - 参数: 无
 - 返回: Promise
