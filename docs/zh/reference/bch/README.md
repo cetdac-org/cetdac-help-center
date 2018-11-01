@@ -14,19 +14,6 @@ BCH币种的接口API
 
 [试一试](http://developer.bitapp.net/playground?code=bitapp.bch.getbalance)
 
-### bitapp.bch.getFee
-
-获取交易手续费
-
-- 类型：方法
-- 参数: type | [string] (取值 'default', 'fast', 'slow')
-- 返回: Promise
-  - success
-    - fee | [number] 获取交易手续费，单位是[satoshi](https://en.bitcoin.it/wiki/Satoshi_(unit)), 1bch = 1e8 satoshi
-  - fail | 失败原因
-
-[试一试](http://developer.bitapp.net/playground?code=bitapp.bch.getfee)
-
 
 ### bitapp.bch.getBlockNumber
 - 类型：方法
@@ -108,7 +95,6 @@ bitapp.bch.transaction.getUnspent('bchtest:qpwtjeu34nnu89yhk8hc853t0zt5fqwvc5x9s
     onfirmations: 1532, //int 确认数
     tx_hash: "1d71d2155d7ece7168006283e26300a29cdf83977a2ee6c67132fd5be58ba712", //string 交易hash
     tx_output_n: 0, //int 未花费在交易输出中的纵向排序
-    tx_output_n2: 0, //int 未花费在交易输出中的横向排序
     value: 260000000 //int 未花费金额
   }],
   page: 1,

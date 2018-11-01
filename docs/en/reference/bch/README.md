@@ -14,19 +14,6 @@ API interface for BCH
 
 [Try][2]
 
-### bitapp.bch.getFee
-
-Get transaction fee
-
-- type: Method
-- parameter: type | [string] ('default', 'fast', 'slow')
-- return: Promise
-  - **success**
-	  - **fee** | [number] Get transaction fee，the unit is [satoshi][3], 1bch = 1e8 satoshi
-  - **fail** | Cause of failure
-
-[Try][4]
-
 
 ### bitapp.bch.getBlockNumber
 - type：method
@@ -108,7 +95,6 @@ bitapp.bch.transaction.getUnspent('bchtest:qpwtjeu34nnu89yhk8hc853t0zt5fqwvc5x9s
     onfirmations: 1532, //int confirmation
     tx_hash: "1d71d2155d7ece7168006283e26300a29cdf83977a2ee6c67132fd5be58ba712", //string trade hash
     tx_output_n: 0, //int unspent's vertical sort of trade output
-    tx_output_n2: 0, //int unspent's transversal sort of trade output
     value: 260000000 //int unspent amount
   }],
   page: 1,
@@ -389,7 +375,6 @@ Tool module
 [1]:	https://en.bitcoin.it/wiki/Satoshi_(unit)
 [2]:	http://developer.bitapp.net/playground?code=bitapp.bch.getbalance
 [3]:	https://en.bitcoin.it/wiki/Satoshi_(unit)
-[4]:	http://developer.bitapp.net/playground?code=bitapp.bch.getfee
 [5]:	http://developer.bitapp.net/playground?code=bitapp.bch.getblocknumber
 [6]:	http://developer.bitapp.net/playground?code=bitapp.bch.verifymessage
 [7]:	http://developer.bitapp.net/playground?code=bitapp.bch.account.get
