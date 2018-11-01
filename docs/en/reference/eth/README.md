@@ -5,19 +5,19 @@ API interface for ETH
 ## bitapp.eth
 
 ### bitapp.eth.gasPrice
-- Type：method
-- Parameter: none
-- Return: Promise
+- type：method
+- parameter: none
+- return: Promise
   - **success**
-    - **gasPrice** | [number] Get updated gas price, the unit is[wei](http://eth-converter.com/)。[Learn more](https://ethgasstation.info/)
+    - **gasPrice** | [number] Get updated gas price, the unit is [wei](http://eth-converter.com/). [Learn more](https://ethgasstation.info/)
   - **fail** | Cause of failure
 
 [Try](http://developer.bitapp.net/playground?code=bitapp.eth.gasprice)
 
 ### bitapp.eth.getBlockNumber
-- Type：method
-- Parameter: none
-- Return: Promise
+- type：method
+- parameter: none
+- return: Promise
   - **success**
     - **blockNumber** | [number] Current latest number of blocks
   - **fail** | Cause of failure
@@ -26,9 +26,9 @@ API interface for ETH
 
 ### bitapp.eth.getRawInstance
 - In order to bring a better calling experience to users and a more unified interface output, bitapp reencapsulates the web3 method of ETH. But we can also expose web3's native objects directly to advanced users. Once the developer gets the native object, they can use the native web3 method. Bitapp uses version 0.20.7 of web3.
-- Type：method
-- Parameter: none
-- Return: Promise
+- type：method
+- parameter: none
+- return: Promise
   - **success**
     - Native object of web3
   - **fail** | Cause of failure
@@ -36,11 +36,11 @@ API interface for ETH
 [Try](http://developer.bitapp.net/playground?code=bitapp.eth.getrawinstance)
 
 ### bitapp.eth.getBalance
-- Type：method
-- Parameter: **address** | [string] Address that needs to check balance，The network environment is the current user extension's network environment.
-- Return: Promise
+- type：method
+- parameter: **address** | [string] Address that needs to query balance. The network environment is the current user extension's network environment.
+- return: Promise
   - **success**
-    - **balance** | [number] Check address's balance，the unit is [wei](http://eth-converter.com/),1eth = 1e18 wei
+    - **balance** | [number] Query address's balance, the unit is [wei](http://eth-converter.com/), 1eth = 1e18 wei
   - **fail** | Cause of failure
 
 [Try](http://developer.bitapp.net/playground?code=bitapp.eth.getbalance)
@@ -50,13 +50,13 @@ API interface for ETH
 Account module
 
 ### bitapp.eth.account.get
-- Type：method
-- Parameter: none
-- Return: Promise
+- type：method
+- parameter: none
+- return: Promise
   - **success**
     - **accounts** | [array] All accounts under current user's eth account
     - **isUnlocked** | [bool] 
-    Whether the wallet is unlocked. If the wallet is locked, the account data is not available.
+    If the wallet is unlocked. If the wallet is locked, the account data is not available.
   - WalletLockError Current wallet is locked.
 
 [Try](http://developer.bitapp.net/playground?code=bitapp.eth.accounts.get)
@@ -191,20 +191,20 @@ Smart contract module
 
 Connect a smart contract
 
-- Type：method
-- Parameter: 
-  - **abi** | [object] Samrt contract abi[What is abi](https://web3js.readthedocs.io/en/1.0/web3-eth-abi.html#eth-abi)
+- type：method
+- parameter: 
+  - **abi** | [object] Samrt contract abi [What is abi](https://web3js.readthedocs.io/en/1.0/web3-eth-abi.html#eth-abi)
   - **address** | [string] Contract address
   - **options**
     - **from** | [string] Calling party
-    - **gasLimit** | [number] The biggest gas The unit is [wei](http://eth-converter.com/)
-    - **gasPrice** | [string] gas price, the unit is[wei](http://eth-converter.com/)。[Learn more](https://ethgasstation.info/)
+    - **gasLimit** | [number] The biggest gas, the unit is [wei](http://eth-converter.com/)
+    - **gasPrice** | [string] Gas price, the unit is[wei](http://eth-converter.com/). [Learn more](https://ethgasstation.info/)
     - **data** | [string] Contract's byte code
-- Return: Promise
+- return: Promise
   - **success**
     - **contract** | [Contract] Return to Contract's object
   - **fail** | Cause of failure
-- Example
+- example
 
 ```js
 
@@ -253,20 +253,20 @@ bitapp.preference.getDefaultAddress('eth').then(from=>{
 
 ### contractInstance.send
 
-the method that calls the smart contract object，at the same time initiate a transaction
+Call the smart contract with this method, and initiate a transaction at the same time.
 
-- Type：method
-- Parameter: 
+- type：method
+- parameter: 
   - method | [string] The name of the method to call
   - args | [array] Paramarrays 
   - **options** | [object]
     - **from** | [string] Calling party
-    - **gasLimit** | [number] The biggest gas The unit is [wei](http://eth-converter.com/)
-    - **gasPrice** | [string] gas price, the unit is [wei](http://eth-converter.com/)。[Learn more](https://ethgasstation.info/)
+    - **gasLimit** | [number] The biggest gas, the unit is [wei](http://eth-converter.com/)
+    - **gasPrice** | [string] gas price, the unit is [wei](http://eth-converter.com/). [Learn more](https://ethgasstation.info/)
     - **value** | [string] Transaction amount
   - **appName** | [string] Application name
   - **desc** | [string] Description of this call
-- Return: Promise
+- return: Promise
   - **success**
     - **txhash** | [string] Call txhash this time
   - **fail** | Cause of failure
@@ -335,23 +335,23 @@ bitapp.preference.getDefaultAddress('eth').then(from=>{
 
 ### contractInstance.call
 
-Call the method of the smart contract object in EVM，but not initiate transaction.
+Call the method of the smart contract in EVM, but not initiate transaction.
 
-- Type：method
-- Parameter: 
+- type：method
+- parameter: 
   - method | [string] The name of the method to call
   - args | [array] Paramarrays 
   - **options** | [object]
     - **from** | [string] Calling party
-    - **gasLimit** | [number] The biggest gas The unit is [wei](http://eth-converter.com/)
-    - **gasPrice** | [string] gas price, the unit is [wei](http://eth-converter.com/)。[Learn more](https://ethgasstation.info/)
+    - **gasLimit** | [number] The biggest gas, the unit is [wei](http://eth-converter.com/)
+    - **gasPrice** | [string] gas price, the unit is [wei](http://eth-converter.com/). [Learn more](https://ethgasstation.info/)
   - **appName** | [string] Application name
   - **desc** | [string] Description of this call
-- Return: Promise
+- return: Promise
   - **success**
     - **txhash** | [string] Call txhash this time
   - **fail** | Cause of failure
-- Example
+- example
 
 ```js
 
@@ -407,19 +407,19 @@ bitapp.preference.getDefaultAddress('eth').then(from=>{
 Exchange rate module
 
 ### bitapp.eth.currency.getCurrency
-- Type：method
-- Parameter: none
-- Return: Promise
+- type：method
+- parameter: none
+- return: Promise
   - **success**
-    - **currency** | [string] The legal currency currently selected by the user('cny', 'usd')
+    - **currency** | [string] The legal currency currently selected by the user('cny', 'usd').
   - **fail** | Cause of failure
 
 [Try](http://developer.bitapp.net/playground?code=bitapp.eth.currency.getcurrency)
 
 ### bitapp.eth.currency.getRate
-- Type：method
-- Parameter: none
-- Return: Promise
+- type：method
+- parameter: none
+- return: Promise
   - **success**
     - **rate** | [number] Current exchange rate
   - **fail** | Cause of failure

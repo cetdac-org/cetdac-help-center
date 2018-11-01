@@ -5,11 +5,11 @@ API interface for BCH
 ## bitapp.bch
 
 ### bitapp.bch.getBalance
-- Type: Method
-- Parameter: address | [string] Address that needs to query balance
-- Return: Promise
+- type: Method
+- parameter: address | [string] Address that needs to query balance
+- return: Promise
   - **success**
-	  - **balance** | [number] Query the balance of the address，The unit is [satoshi][1], 1bch = 1e8 satoshi
+	  - **balance** | [number] Query the balance of the address, the unit is [satoshi][1], 1bch = 1e8 satoshi
   - **fail** | Cause of failure
 
 [Try][2]
@@ -18,9 +18,9 @@ API interface for BCH
 
 Get transaction fee
 
-- Type: Method
-- Parameter: type | [string] (dereference 'default', 'fast', 'slow')
-- Return: Promise
+- type: Method
+- parameter: type | [string] ('default', 'fast', 'slow')
+- return: Promise
   - **success**
 	  - **fee** | [number] Get transaction fee，the unit is [satoshi][3], 1bch = 1e8 satoshi
   - **fail** | Cause of failure
@@ -29,9 +29,9 @@ Get transaction fee
 
 
 ### bitapp.bch.getBlockNumber
-- Type：method
-- Parameter: none
-- Return: Promise
+- type：method
+- parameter: none
+- return: Promise
   - **success**
 	  - **blockNumber** | [number] The latest block count
   - **fail** | Cause of failure
@@ -39,8 +39,8 @@ Get transaction fee
 [Try][5]
 
 ### bitapp.bch.verifyMessage
-- Type：method
-- Parameter: 
+- type：method
+- parameter: 
   - **address** | [string] Address
   - **message** | [string] Original message
   - **signature** | [string] Signature
@@ -54,9 +54,9 @@ Get transaction fee
 Account module
 
 ### bitapp.bch.account.get
-- Type：method
-- Parameter: none
-- Return: Promise
+- type：method
+- parameter: none
+- return: Promise
   - **success**
 	  - **accounts** | [array] All accounts under the current user's BCH account
   - **fail**
@@ -69,9 +69,9 @@ Account module
 Network module
 
 ### bitapp.bch.net.getId
-- Type：method
-- Parameter: none
-- Return: Promise
+- type：method
+- parameter: none
+- return: Promise
   - **success**
 	  - **networkid** | [string] Network environment digital number(1 = mainnet, 2 = testnet) [Complete network type][8]
   - **fail** | Cause of failure
@@ -79,9 +79,9 @@ Network module
 [Try][9]
 
 ### bitapp.bch.net.getNetworkType
-- Type：method
-- Parameter: none
-- Return: Promise
+- type：method
+- parameter: none
+- return: Promise
   - **success**
 	  - **network** | [string] Network environment(mainnet = 1, testnet = 2) [Complete network type][10]
   - **fail** | Cause of failure
@@ -91,9 +91,9 @@ Network module
 ## bitapp.bch.transaction
 
 ### bitapp.bch.transaction.getUnspent
-- Type：method
-- Parameter: none
-- Return: Promise
+- type：method
+- parameter: none
+- return: Promise
   - **success**
 	  - **utxo** | [array] utxo array
   - **fail** | Cause of failure
@@ -121,9 +121,9 @@ bitapp.bch.transaction.getUnspent('bchtest:qpwtjeu34nnu89yhk8hc853t0zt5fqwvc5x9s
 [Try][12]
 
 ### bitapp.bch.transaction.getTransaction
-- Type：method
-- Parameter: txHash
-- Return: Promise
+- type：method
+- parameter: txHash
+- return: Promise
   - **success**
 	  - **txObject** | [object] Transaction structure
   - **fail** | Cause of failure
@@ -177,10 +177,10 @@ bitapp.bch.transaction.getTransaction('2949978d23c296d0487f2160cdd86f53dffcc3bdb
 Address module
 
 ### bitapp.bch.address.detectAddress
-- Type：method
-- Parameter: 
+- type：method
+- parameter: 
   - **address** | [string] Address
-- Return:
+- return:
 	- **format** | [string] Address format（'legacy', 'cashaddr', 'bitpay'）[Complete address format][14]
 	- **network** | [string] Network type（'livenet', 'testnet'）[Complete network type][15]
 	- **type** | [string] Address type（'pubkeyhash', 'scripthash'）[Complete address type][16] 
@@ -202,8 +202,8 @@ bitapp.bch.address.detectAddress('bchtest:qpwtjeu34nnu89yhk8hc853t0zt5fqwvc5x9sp
 [Try][18]
 
 ### bitapp.bch.address.toLegacyAddress
-- Type：method
-- Parameter: 
+- type：method
+- parameter: 
   - **address** | [string] Address
 - return:
 	- **legacyAddress** | [string] legacy address format
@@ -219,30 +219,30 @@ bitapp.bch.address.toLegacyAddress('bchtest:qpwtjeu34nnu89yhk8hc853t0zt5fqwvc5x9
 [Try][19]
 
 ### bitapp.bch.address.toCashAddress
-- Type：method
-- Parameter: 
+- type：method
+- parameter: 
   - **address** | [string] Address
-- Return:
+- return:
 	- **cashAddress** | [string] cash address format
 
 [Try][20]
 
 ### bitapp.bch.address.toBitpayAddress
-- Type：method
-- Parameter: 
+- type：method
+- parameter: 
   - **address** | [string] Address
-- Return:
+- return:
 	- **bitpayAddress** | [string] bitpay address format(BitPie specific address)
 
 [Try][21]
 
 ### bitapp.bch.address.isLegacyAddress
-- Type：method
-- Parameter: 
+- type：method
+- parameter: 
   - **address** | [string] Address
-- Return:
+- return:
 	- **isLegacyAddress** | [bool]
-- Example
+- example
 
 ```js
 
@@ -255,19 +255,19 @@ false
 [Try][22]
 
 ### bitapp.bch.address.isCashAddress
-- Type：method
-- Parameter: 
+- type: method
+- parameter: 
   - **address** | [string] Address
-- Return:
+- return:
 	- **isCashAddress** | [bool]
 
 [Try][23]
 
 ### bitapp.bch.address.isBitpayAddress
-- Type：method
-- Parameter: 
+- type：method
+- parameter: 
   - **address** | [string] Address
-- Return:
+- return:
 	- **isBitpayAddress** | [bool]
 
 [Try][24]
@@ -276,12 +276,12 @@ false
 
 Determine if it is the main network address
 
-- Type：method
-- Parameter: 
+- type：method
+- parameter: 
   - **address** | [string] Address
-- Return:
+- return:
 	- **isMainnetAddress** | [bool]
-- Example
+- example
 
 ```js
 
@@ -297,10 +297,10 @@ false
 
 Determine if it is the main testnet address
 
-- Type：method
-- Parameter: 
+- type：method
+- parameter: 
   - **address** | [string] Address
-- Return:
+- return:
 	- **isTestnetAddress** | [bool]
 
 [Try][26]
@@ -309,12 +309,12 @@ Determine if it is the main testnet address
 
 [What is P2PKH][27]
 
-- Type：method
-- Parameter: 
+- type：method
+- parameter: 
   - **address** | [string] Address
-- Return:
+- return:
 	- **isP2PKHAddress** | [bool]
-- Example
+- example
 
 ```js
 
@@ -330,10 +330,10 @@ true
 
 [What is P2SH][29]
 
-- Type：method
-- Parameter: 
+- type：method
+- parameter: 
   - **address** | [string] Address
-- Return:
+- return:
 	- **isP2SHAddress** | [bool]
 
 [Try][30]
@@ -343,9 +343,9 @@ true
 Exchange rate module
 
 ### bitapp.bch.currency.getCurrency
-- Type：method
-- Parameter: none
-- Return:
+- type：method
+- parameter: none
+- return:
   - **success**
 	  - **currency** | [string] the legal currency currently selected by the user('cny', 'usd')
   - **fail** | Cause of failure
@@ -353,9 +353,9 @@ Exchange rate module
 [Try][31]
 
 ### bitapp.bch.currency.getRate
-- Type：method
-- Parameter: none
-- Return:
+- type：method
+- parameter: none
+- return:
   - **success**
 	  - **rate** | [number] Current exchange rate
   - **fail** | Cause of failure
@@ -368,20 +368,20 @@ Tool module
 
 ### bitapp.bch.util.bchToSatoshi
 
-- Type：method
-- Parameter: 
+- type：method
+- parameter: 
   - **val** | [number or string] Value in the unit of BCH
-- Return:
+- return:
 	- **satoshi** | [number] Return to value in the unit of satoshi
 
 [Try][33]
 
 ### bitapp.bch.util.satoshiToBch
 
-- Type：method
-- Parameter: 
+- type：method
+- parameter: 
   - **val** | [number or string] Value in the unit of satoshi
-- Return:
+- return:
 	- **bch** | [number] Return to value in the unit of bch
 
 [Try][34]

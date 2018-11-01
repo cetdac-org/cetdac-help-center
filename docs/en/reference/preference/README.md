@@ -6,22 +6,22 @@ User configuration module
 
 Query user's current configuration.
 
-- Type：method
-- Parameter: 
-  - **key** | [string] (optional),The field name that needs to be queried，If nor filled in, all fields are queried
-    - **currency** current legal currency symbol
-    - **currencyType** current legal currency
-    - **currentLocale** current language
-    - **currentPage** the current page of the extension
+- type：method
+- parameter: 
+  - **key** | [string] (optional), the field name that needs to be queried，If nor filled in, all fields are queried
+    - **currency** Current legal currency symbol
+    - **currencyType** Current legal currency
+    - **currentLocale** Current language
+    - **currentPage** The current page of the extension
     - **identities** All account information
     - **selectedAddress** Current address
-    - **tokens** token list
-- Return: Promise
+    - **tokens** Token list
+- return: Promise
   - **success**
     - **result** | [object] The query results
   - **fail** | Cause of failure
 
-- Example
+- example
 
 ```js
 bitapp.preference.get().then(console.log)
@@ -41,11 +41,11 @@ bitapp.preference.get().then(console.log)
 
 ## bitapp.preference.getCurrency
 
-Gets the user's current currency type
+Get the user's current currency type
 
-- Type：method
-- Parameter: none
-- Return: Promise
+- type：method
+- parameter: none
+- return: Promise
   - **success**
     - **currency** | [string] currency ('cny', 'usd').
   - **fail** | cause of failure
@@ -54,11 +54,11 @@ Gets the user's current currency type
 
 ## bitapp.preference.getLocale
 
-Gets the language of the user's current selection
+Get the language of the user's current selection
 
-- Type：method
-- Parameter: none
-- Return: Promise
+- type：method
+- parameter: none
+- return: Promise
   - **success**
     - **locale** | [string] Language ('cn', 'en').
   - **fail** | Cause of failure
@@ -67,13 +67,13 @@ Gets the language of the user's current selection
 
 ## bitapp.preference.getTokens
 
-Get the Token that the user is currently adding
+Get the tokens that the user is currently adding
 
-- Type：method
-- Parameter: 
+- type：method
+- parameter: 
   - **coin** | [string] Currency Optional [Complete token list](/en/append/#complete-token-list)
   - **network** | [string] Optional Network type string [Complete network type](/en/append/#complete-network-list)
-- Return: Promise
+- return: Promise
   - **success**
     - **tokens** | [array] Token list.
   - **fail** | Cause of failure.
@@ -82,13 +82,13 @@ Get the Token that the user is currently adding
 
 ## bitapp.preference.getDefaultAddress
 
-Gets the user's current default address
+Get the user's current default address
 
-- Type：method
-- Parameter: 
-  - **coin** | [string] (optional) currency, If not filled in, return the address of all tokens（ERC20 address is the same as ETH address） [Complete token list](/en/append/#complete-token-list)
+- type：method
+- parameter: 
+  - **coin** | [string] (optional) Currency, If not filled in, return the address of all tokens（ERC20 address is the same as ETH address） [Complete token list](/en/append/#complete-token-list)
   - **networkType** | [string]  (optional) Network type, optional, bch needs networkType [Complete network type](/zh/append/#complete-network-list), eth doesn't.
-- Return: Promise
+- return: Promise
   - **success**
     - **address** | [string] Current address.
   - **fail** | Cause of failure

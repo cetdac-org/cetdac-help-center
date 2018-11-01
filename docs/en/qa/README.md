@@ -19,7 +19,7 @@ Answer: Totally. Based on the BitApp SDK, you don't need to pay attention to the
 ## How to receive ETH test coin and BCH test coin?
 Answer: After installing the BitApp Chrome extension, open the developer station and you can [get free ETH](https://developer.bitapp.net/faucet/eth) or [get free BCH](https://developer.bitapp.net/faucet/bch).
 
-## How to detect if the user has installed BitApp
+## How to detect if the user has installed BitApp?
 
 If the user installs BitApp, the developer can directly access the **window.bitapp** object
 
@@ -31,7 +31,7 @@ if(!window.bitapp){
 
 ```
 
-**If the user has created a BitApp account, the user's address can be obtained by the following method**
+**If the user has created a BitApp account, the user's address can be obtained by the following method:**
 
 ```js
 

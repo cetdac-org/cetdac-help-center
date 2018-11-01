@@ -4,7 +4,7 @@
 
 ### Chrome extension
 
-BitApp Chrome extension is now online，If your web page needs to use the API provided by BitApp, you need to install [Chrome extension](http://developer.bitapp.net) first.
+BitApp Chrome extension is now online, if your web page needs to use the API provided by BitApp, you need to install [Chrome extension](http://developer.bitapp.net) first.
 After successful installation, a small icon will appear in the upper right corner of the Chrome browser.
 
 ![Install successfully](./install-success.png)
@@ -45,11 +45,11 @@ if (bitapp) {
 
 ### FireFox extension
 
-BitApp FireFox is under development, please stay tuned。
+BitApp FireFox is under development, please stay tuned.
 
 ### More platform versions
 
-BitApp We plan to release more versions. In the future, we will launch independent versions of android and ios and provide unified API call experience. Please look forward to it.
+About BitApp Wallet, we plan to release more versions. In the future, we will launch independent versions of android and ios and provide unified API experience. Please look forward to it.
 
 ## Introduction
 
@@ -57,13 +57,13 @@ BitApp aims to provide developers with blockchain infrastructure services and lo
 
 ## Features
 
-- **Multiple development language**
+- **Multiple development languages**
 
-  We support JavaScript, nodeJS, Python and other development languages, and provide Android, iOS native SDK.
+  We support JavaScript, node.js, Python and other development languages, and provide Android, iOS native SDK.
 
 - **Multi-public chains unified API interface**
 
-  We provides unified API call interface for multiple public chains, supports ETH, BCH and EOS, and aims to help developers support multiple public chains quickly and efficiently.
+  We provides unified API interface for multiple public chains, supports ETH, BCH and EOS, and aims to help developers support multiple public chains quickly and efficiently.
 
 - **Integrated query API**
 

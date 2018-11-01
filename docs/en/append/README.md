@@ -4,7 +4,7 @@
 
 - ETH
 - BCH
-- ERC20代币
+- ERC20 Token 
 
 ## Complete network list
 

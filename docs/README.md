@@ -4,13 +4,14 @@ heroImage: /approles.png
 actionText: Guidance →
 actionLink: /en/getstarted/
 features:
-- title: SDK wih multi-language support.
-  details: In addition to javascript sdk, we will also launch android, ios version sdk, for the server, we will provide nodejs and python version, please keep in touch.
-- title: Uniform API for multiple chains.
-  details: We provide a uniform API call interface for multiple chains (eth, bch), designed to help developers complete multiple chain support quickly and efficiently.
-- title: BlockExplorer service integrated.
-  details: BITAPP sdk integrates commonly used balance query, transactions query and other functions, so you don't need to call other services and they are free.
-footer: Copyright © BITAPP Team
+- title: SDK with multi-language support.
+  details: In addition to javascript SDK, we will also launch android, ios version SDK. For the server, we will provide node.js and python version, please stay tuned.
+- title: Unified API for multiple chains.
+  details: We provide a unified API interface for multiple chains (
+    ETH, BCH), which is designed to help developers support multiple chains quickly and efficiently.
+- title: Integrated block explorer service.
+  details: BitApp SDK integrates commonly used balance query, transactions query and other functions, so you don't need to call other services and it's free.
+footer: Copyright © BitApp Team
 ---
 
 # Get Started

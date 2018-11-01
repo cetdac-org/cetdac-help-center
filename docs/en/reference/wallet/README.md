@@ -18,38 +18,38 @@ Request to unlock
 
 ## bitapp.wallet.isUnlocked
 
-Determine whether the bitapp wallet extension is unlocked
+Determine if the bitapp wallet extension is unlocked
 
-- Type：method
-- Parameter: none
-- Return: Promise
-  - success
-    - isUnlocked | [bool] The value is true if the wallet is unlocked and false if the wallet is locked.
+- type：method
+- parameter: none
+- return: Promise
+  - **success**
+    - **isUnlocked** | [bool] The value is true if the wallet is unlocked and false if the wallet is locked.
   - fail
 
 [Try](http://developer.bitapp.net/playground?code=bitapp.wallet.isunlocked)
 
 ## bitapp.wallet.requestPay
 
-Make a transfer request.
+Initate a transfer request.
 
-- Type: method
-- Parameter: 
-  - appName | [string] The platform of transfer.
-  - symbol | [string] Currency ('eth', 'bch', 'others'). [Complete list of cryptocurrency](/en/append/#complete-list-of-cryptocurrency)
-  - amount | [string] Transfer amount (eth: unit[wei](http://eth-converter.com/)。[Learn more](https://ethgasstation.info/)) or transaction fee (bch: unit[satoshi](https://en.bitcoin.it/wiki/Satoshi_(unit)), 1bch = 1e8 satoshi)
-  - to | [string] transfer address
-  - gasPriceOrFee | [string | null | undefined] (optional) (Fill in null or undefined for the default fee) gasPrice (eth: unit [wei](http://eth-converter.com/)。[ETH unit conversion](/en/append/#unit-conversion)) or transaction fee fee(bch: unit [satoshi](https://en.bitcoin.it/wiki/Satoshi_(unit)), 1bch = 1e8 satoshi) 
-  - data | [string] self-defining data
-  - desc | [string] transfer description
-- Return: Promise
-  - success
-    - result | [object]
-      - data | [object] If the user cancels, there is no data
-        - txid | [string] transaction id
-      - action | [string] User behavior（'AUTH_PAY'：User authorizes payment，'CANCEL_PAY': User cancels payment）
+- type: method
+- parameter: 
+  - **appName** | [string] The platform of transfer.
+  - **symbol** | [string] Currency ('eth', 'bch', 'others'). [Complete list of cryptocurrency](/en/append/#complete-list-of-cryptocurrency)
+  - **amount** | [string] Transfer amount (eth: unit [wei](http://eth-converter.com/)。[Learn more](https://ethgasstation.info/)) or transaction fee (bch: unit [satoshi](https://en.bitcoin.it/wiki/Satoshi_(unit)), 1bch = 1e8 satoshi)
+  - **to** | [string] transfer address
+  - **gasPriceOrFee** | [string | null | undefined] (optional) (Fill in null or undefined for the default fee) gasPrice (eth: unit [wei](http://eth-converter.com/)。[ETH unit conversion](/en/append/#unit-conversion)) or transaction fee fee(bch: unit [satoshi](https://en.bitcoin.it/wiki/Satoshi_(unit)), 1bch = 1e8 satoshi) 
+  - **data** | [string] self-defining data
+  - **desc** | [string] transfer description
+- return: Promise
+  - **success**
+    - **result** | [object]
+      - **data** | [object] If the user cancels, there is no data
+        - **txid** | [string] transaction id
+      - **action** | [string] User behavior（'AUTH_PAY'：User authorizes payment，'CANCEL_PAY': User cancels payment）
   - fail
-- Example
+- example
 
 ```js
 bitapp.bch.net.getId().then(network => {
@@ -74,21 +74,21 @@ bitapp.bch.net.getId().then(network => {
 
 ## bitapp.wallet.requestSign
 
-Make a signature request.
+Initiate a signature request.
 
-- Type：method
-- Parameter: 
-  - appName | [string] The platform of signature
-  - symbol | [string] Currency ('eth', 'bch')。
-  - dataToSign | [string] The data that needs signature
-- Return: Promise
-  - success
-    - result | [object]
-      - data | [object] If the user cancels, there is no data
-        - signature | [string] Signature data
-      - action | [string] User behavior（'AUTH_SIGN'：User authorizes signature，'CANCEL_SIGN': User cancels signature）
-  - fail
-- Example
+- type：method
+- parameter: 
+  - **appName** | [string] The platform of signature
+  - **symbol** | [string] Currency ('eth', 'bch')。
+  - **dataToSign** | [string] The data that needs signature
+- return: Promise
+  - **success**
+    - **result** | [object]
+      - **data** | [object] If the user cancels, there is no data
+        - **signature** | [string] Signature data
+      - **action** | [string] User behavior（'AUTH_SIGN'：User authorizes signature，'CANCEL_SIGN': User cancels signature）
+  - **fail**
+- example
 
 ```js
 bitapp.wallet.requestSign('Demo','bch','Register account').then(console.log)
