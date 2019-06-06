@@ -7,13 +7,13 @@
 以下是免费的海外App Store账号供您使用
 
 ```
-香港账户：gaijia7470@163.com 密码：Dd667788
-香港账户：jifanshi171474@163.com 密码：Dd667788
-香港账户：gongyang198722@163.com 密码：Dd667788
-香港账户：qinfeigu5815811471@163.com 密码：Dd667788
-香港账户：wuqin581815@163.com 密码：Dd667788
-美国账户：niuzuiji5884177473@163.com 密码：Dd667788
-香港账户：yunqixue2815815@163.com 密码：Dd667788
+香港账户：iypwe5i4@icloud.com 密码：Aa112211
+香港账户：tj31x0ew@icloud.com 密码：Aa112211
+香港账户：k20ngj1p@icloud.com 密码：Aa112211
+香港账户：ry883zqy@icloud.com 密码：Aa112211
+香港账户：f08isz3s@icloud.com 密码：Aa112211
+香港账户：d296r939@icloud.com 密码：Aa112211
+
 ```
 
 ### 1.点击蓝色App Store 图标进入应用
