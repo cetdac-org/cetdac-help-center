@@ -6,7 +6,7 @@ module.exports = {
       lang: 'en-US', // 将会被设置为 <html> 的 lang 属性
       title: 'PureWallet Help Center',
       description: 'A Cryptocurrency Wallet',
-      keywords: 'eth,以太坊,bch,bcc,bitcoin cash,比特现金,sdk,bitapp,开发者,水龙头,测试币,测试币领取,免费,free,ropsten,testnet,faucet,多币种,支付按钮,跨链开发,区块链开发,智能合约,比特币,btc,钱包,wallet,extension,metamask,兔子洞口,dapp,play,dapps,去中心化应用,去中心应用,应用,插件钱包',
+      keywords: 'btc,bch,bcc,bitcoin cash,sdk,iost,ft,iostabc,bitapp,free,ropsten,testnet,faucet,wallet,extension,metamask,dapp,play,dapps',
       head: [
         ['link', { rel: 'icon', href: '/favicon.ico' }]
       ]
@@ -15,7 +15,7 @@ module.exports = {
       lang: 'zh',
       title: 'PureWallet 帮助中心',
       description: '专业数字货币钱包',
-      keywords: 'eth,以太坊,bch,bcc,bitcoin cash,比特现金,sdk,bitapp,开发者,水龙头,测试币,测试币领取,免费,free,ropsten,testnet,faucet,多币种,支付按钮,跨链开发,区块链开发,智能合约,比特币,btc,钱包,wallet,extension,metamask,兔子洞口,dapp,play,dapps,去中心化应用,去中心应用,应用,插件钱包',
+      keywords: '比特币,以太坊,iost,iostabc,比特现金,sdk,bitapp,开发者,水龙头,测试币,测试币领取,免费,free,ropsten,testnet,faucet,多币种,支付按钮,跨链开发,区块链开发,智能合约,比特币,钱包,兔子洞口,dapp,dapps,去中心化应用,去中心应用,应用,插件钱包',
       head: [
         ['link', { rel: 'icon', href: '/favicon.ico' }]
       ]
@@ -35,10 +35,10 @@ module.exports = {
         label: 'English',
         sidebar: [
           {
-            title: 'Guidance',
+            title: 'IOST Free Account Creation',
             collapsable: false,
             children: [
-              '/en/getstarted/'
+              '/en/iostaccount/'
             ]
           }
         ]
@@ -55,6 +55,13 @@ module.exports = {
             collapsable: false,
             children: [
               '/zh/getstarted/'
+            ]
+          },
+          {
+            title: 'IOST免费账户注册',
+            collapsable: false,
+            children: [
+              '/zh/iostaccount/'
             ]
           }
         ]
