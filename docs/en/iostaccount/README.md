@@ -16,4 +16,8 @@
 
 ![account-3](./account-3.jpeg)
 
-#### 4. After successful creation, you will have an IOST account after waiting for the confirmation of IOST network
+#### 4. How to export your IOST Private Key
+
+Go to the IOST Receive page, and the Export function is on the right top corner
+
+![account-4](./account-4.jpeg)

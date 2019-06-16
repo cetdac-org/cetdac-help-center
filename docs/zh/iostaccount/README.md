@@ -16,4 +16,8 @@
 
 ![account-3](./account-3.jpeg)
 
-#### 4. 创建成功之后，等待IOST主网确认之后你就拥有了一个IOST主网账户了
+#### 4. 怎样导出私钥
+
+进入IOST收款页面, 导出功能在右上角
+
+![account-4](./account-4.jpeg)
