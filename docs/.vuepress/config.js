@@ -40,6 +40,13 @@ module.exports = {
             children: [
               '/en/iostaccount/'
             ]
+          },
+          {
+            title: 'IOST Pledge For New Account',
+            collapsable: false,
+            children: [
+              '/en/iostpledgeaccount/'
+            ]
           }
         ]
       },
@@ -58,10 +65,17 @@ module.exports = {
             ]
           },
           {
-            title: 'IOST免费账户注册',
+            title: 'IOST免费创建账户',
             collapsable: false,
             children: [
               '/zh/iostaccount/'
+            ]
+          },
+          {
+            title: 'IOST抵押创建账户',
+            collapsable: false,
+            children: [
+              '/zh/iostpledgeacount/'
             ]
           }
         ]
