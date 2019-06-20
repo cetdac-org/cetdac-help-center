@@ -1,6 +1,6 @@
 # IOST Pledge For New Account
 
-## on Web
+## For Web
 
 ### 1. Download and install [iWallet](https://chrome.google.com/webstore/detail/iwallet/kncchdigobghenbbaddojjnnaogfppfj)
 
