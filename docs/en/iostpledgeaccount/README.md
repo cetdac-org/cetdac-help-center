@@ -6,7 +6,7 @@
 
 ![pledge-1](./pledge-1.jpg)
 
-### 2. open iostabc.com
+### 2. Open iostabc.com
 
 [https://www.iostabc.com/wallet/createaccount](https://www.iostabc.com/wallet/createaccount)
 

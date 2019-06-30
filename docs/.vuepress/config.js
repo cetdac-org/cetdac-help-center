@@ -47,6 +47,27 @@ module.exports = {
             children: [
               '/en/iostpledgeaccount/'
             ]
+          },
+          {
+            title: 'IOST Deposit',
+            collapsable: false,
+            children: [
+              '/en/iostdeposit/'
+            ]
+          },
+          {
+            title: 'IOST Vote',
+            collapsable: false,
+            children: [
+              '/en/iostvoting/'
+            ]
+          },
+          {
+            title: 'IOST DApps',
+            collapsable: false,
+            children: [
+              '/en/iostdapps/'
+            ]
           }
         ]
       },
@@ -76,6 +97,27 @@ module.exports = {
             collapsable: false,
             children: [
               '/zh/iostpledgeacount/'
+            ]
+          },
+          {
+            title: 'IOST Deposit',
+            collapsable: false,
+            children: [
+              '/zh/iostdeposit/'
+            ]
+          },
+          {
+            title: 'IOST Vote',
+            collapsable: false,
+            children: [
+              '/zh/iostvoting/'
+            ]
+          },
+          {
+            title: 'IOST DApps',
+            collapsable: false,
+            children: [
+              '/zh/iostdapps/'
             ]
           }
         ]
