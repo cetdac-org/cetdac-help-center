@@ -1,4 +1,4 @@
-# IOST Vote
+# IOST 投票
 
 ## 1. 首页选择IOST
 

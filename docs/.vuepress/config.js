@@ -100,14 +100,14 @@ module.exports = {
             ]
           },
           {
-            title: 'IOST Deposit',
+            title: 'IOST 充值',
             collapsable: false,
             children: [
               '/zh/iostdeposit/'
             ]
           },
           {
-            title: 'IOST Vote',
+            title: 'IOST 投票',
             collapsable: false,
             children: [
               '/zh/iostvoting/'
