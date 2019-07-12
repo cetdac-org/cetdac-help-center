@@ -96,7 +96,7 @@ module.exports = {
             title: 'IOST抵押创建账户',
             collapsable: false,
             children: [
-              '/zh/iostpledgeacount/'
+              '/zh/iostpledgeaccount/'
             ]
           },
           {
