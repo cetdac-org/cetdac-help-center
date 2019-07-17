@@ -1,3 +1,3 @@
-## Wallet Video 
+# Get started
 
-[Video Tutorial](https://youtu.be/kC1e86bQA_o)
+Here is the CoinEx Chain Community Documentation Center. Here we will select and organize high-quality community content to help new users learn and learn CoinEx Chain.

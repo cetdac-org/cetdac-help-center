@@ -1,7 +1,7 @@
 ---
 home: true
-heroImage: /purewallet.png
+heroImage: /cetdac-logo.png
 actionText: Guidance →
-actionLink: /en/iostaccount/
-footer: Copyright © PureWallet Team
+actionLink: /en/getstarted/
+footer: Copyright © CETDAC Team
 ---
