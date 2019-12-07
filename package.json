@@ -610,7 +610,7 @@
     "select": "^1.1.2",
     "semver": "^5.5.0",
     "semver-diff": "^2.1.0",
-    "serialize-javascript": "^1.5.0",
+    "serialize-javascript": "^2.1.1",
     "set-blocking": "^2.0.0",
     "set-immediate-shim": "^1.0.1",
     "set-value": "^2.0.0",
