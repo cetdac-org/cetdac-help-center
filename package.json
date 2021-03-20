@@ -327,7 +327,7 @@
     "is-regex": "^1.0.4",
     "is-retry-allowed": "^1.1.0",
     "is-stream": "^1.1.0",
-    "is-svg": "^2.1.0",
+    "is-svg": "^4.2.2",
     "is-symbol": "^1.0.1",
     "is-windows": "^1.0.2",
     "is-wsl": "^1.1.0",
