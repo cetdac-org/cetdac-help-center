@@ -39,7 +39,7 @@
     "asn1.js": "^4.10.1",
     "assert": "^1.4.1",
     "assign-symbols": "^1.0.0",
-    "async": "^1.5.2",
+    "async": "^3.2.2",
     "async-each": "^1.0.1",
     "async-limiter": "^1.0.0",
     "atob": "^2.1.1",
